@@ -1,0 +1,3 @@
+const modelSynch = await () => {
+  
+}
