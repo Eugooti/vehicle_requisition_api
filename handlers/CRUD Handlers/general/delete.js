@@ -1,4 +1,4 @@
-const {handleErrors, itemNotFound, successTransaction} = require("../../utils/errorHandlers");
+const {handleErrors, itemNotFound, successTransaction} = require("../../../utils/errorHandlers");
 const remove = async (model,req,res) => {
   try {
       const {id} = req.params;

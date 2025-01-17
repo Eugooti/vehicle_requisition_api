@@ -1,4 +1,4 @@
-const {successTransaction, handleErrors, itemNotFound} = require("../../utils/errorHandlers");
+const {successTransaction, handleErrors, itemNotFound} = require("../../../utils/errorHandlers");
 const read = async (model,req,res) => {
     try {
         const result = await model.findAll()

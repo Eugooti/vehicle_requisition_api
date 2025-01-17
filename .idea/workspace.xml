@@ -1,4 +1,172 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PropertiesComponent">{}</component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="bdc2914e-af0a-4c60-af94-768411d4cf41" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/material_theme_project_new.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/auth/JWT/JWTAuthentication.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/auth/JWT/jwtTokens.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/auth/JWT/refreshTokens.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/auth/RoleBasedAccess/Roles.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/auth/RoleBasedAccess/accessControl.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/auth/passportConfig.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controller/Trip/tripController.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controller/adminController/approversController.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controller/adminController/departmentController.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controller/adminController/rolesController.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controller/adminController/userController.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controller/adminController/vehicleController.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controller/auth/authController.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/handlers/CRUD Handlers/general/create.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/handlers/CRUD Handlers/general/delete.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/handlers/CRUD Handlers/general/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/handlers/CRUD Handlers/general/read.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/handlers/CRUD Handlers/general/update.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/handlers/MailHandler/MailHandler.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/handlers/authHandler/LogOut.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/handlers/authHandler/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/handlers/authHandler/login.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/handlers/authHandler/updatePassword.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/handlers/travelHandlers/approveTravel.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/handlers/travelHandlers/createTravel.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/handlers/travelHandlers/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/handlers/userHandlers/CreateUser.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/handlers/userHandlers/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/Trip.model.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/departments.model.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/modelSync.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/roles.model.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/user.model.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/vehicle.model.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routes/admin.router.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routes/auth.router.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routes/trips.router.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/utils/errorHandlers.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
+  <component name="ProjectId" id="2rc6XtanZPpm0JgPLZrwa5rwQ5n" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Node.js.Roles.js.executor&quot;: &quot;Run&quot;,
+    &quot;Node.js.db.config.js.executor&quot;: &quot;Run&quot;,
+    &quot;Node.js.index.js.executor&quot;: &quot;Run&quot;,
+    &quot;Node.js.testss.js.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;javascript.nodejs.core.library.configured.version&quot;: &quot;22.11.0&quot;,
+    &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;22.10.6&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/640/WebstormProjects/vehicle_allocation_api/handlers/CRUD Handlers/withMail&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;npm.start.executor&quot;: &quot;Run&quot;,
+    &quot;npm.stat.executor&quot;: &quot;Run&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\WebStorm 2024.2.1\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\640\WebstormProjects\vehicle_allocation_api\handlers\CRUD Handlers\withMail" />
+      <recent name="C:\Users\640\WebstormProjects\vehicle_allocation_api\config\auth" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\640\WebstormProjects\vehicle_allocation_api\handlers\CRUD Handlers\general" />
+      <recent name="C:\Users\640\WebstormProjects\vehicle_allocation_api\config\auth\JWT" />
+    </key>
+  </component>
+  <component name="RunManager" selected="npm.start">
+    <configuration name="Roles.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/config/auth/RoleBasedAccess/Roles.js" working-dir="$PROJECT_DIR$/config/auth/RoleBasedAccess">
+      <method v="2" />
+    </configuration>
+    <configuration name="testss.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/utils/testss.js" working-dir="$PROJECT_DIR$/utils">
+      <method v="2" />
+    </configuration>
+    <configuration name="start" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.start" />
+        <item itemvalue="Node.js.Roles.js" />
+        <item itemvalue="Node.js.testss.js" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-deb605915726-JavaScript-WS-243.22562.222" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="bdc2914e-af0a-4c60-af94-768411d4cf41" name="Changes" comment="" />
+      <created>1736846059204</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1736846059204</updated>
+      <workItem from="1736846060524" duration="3268000" />
+      <workItem from="1736853272024" duration="2341000" />
+      <workItem from="1736856115611" duration="4834000" />
+      <workItem from="1736871445878" duration="3541000" />
+      <workItem from="1736916942968" duration="1424000" />
+      <workItem from="1736921445109" duration="9227000" />
+      <workItem from="1736930894226" duration="231000" />
+      <workItem from="1736931186434" duration="123000" />
+      <workItem from="1736931390925" duration="13637000" />
+      <workItem from="1737006062705" duration="6038000" />
+      <workItem from="1737015532445" duration="6440000" />
+      <workItem from="1737029248110" duration="2501000" />
+      <workItem from="1737090545545" duration="16666000" />
+      <workItem from="1737114566213" duration="59000" />
+      <workItem from="1737114664733" duration="800000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
 </project>
