@@ -5,10 +5,12 @@ const {accessControl} = require("../config/auth/RoleBasedAccess/accessControl");
 
 const router = express.Router();
 
-router.route('/trip/create').post(accessControl(["apply"]),catchErrors(tripsController.createTravel))
-// router.route('/trip/read').get(catchErrors(tripsController.read))
-// router.route('/trip/read/:id').get(catchErrors(tripsController.readById))
-// router.route('/trip/update/:id').put(catchErrors(tripsController.update))
-// router.route('/trip/delete/:id').post(catchErrors(tripsController.delete))
+router.route('/trip/create').post(catchErrors(tripsController.createTravel))
+router.route('/trip/read').get(catchErrors(tripsController.read))
+router.route('/trip/read/:id').get(catchErrors(tripsController.readById))
+router.route('/trip/read/department/:id').get(catchErrors(tripsController.readByDpt))
+router.route('/trip/approve/:id').put(catchErrors(tripsController.approveTravel))
+router.route('/trip/assign/:id').put(catchErrors(tripsController.allocation))
+router.route('/trip/startEnd/:id').put(catchErrors(tripsController.update))
 
 module.exports = router

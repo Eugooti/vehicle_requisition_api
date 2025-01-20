@@ -32,7 +32,7 @@ const createTravel = async (model,req,res) => {
             .map(user => user.email); // Extract the emails
 
 
-        const mailResult = await MailHandler(emails,"approval","Hello")
+        const mailResult = await MailHandler(emails,"APPROVAL REQUEST","I hope this message find you well. You have a new vehicle requisition approval request.")
 
         if (!mailResult.success) {
             throw new Error(`Failed to send email: ${mailResult.error}`);

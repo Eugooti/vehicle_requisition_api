@@ -5,50 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bdc2914e-af0a-4c60-af94-768411d4cf41" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/material_theme_project_new.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/auth/JWT/JWTAuthentication.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/auth/JWT/jwtTokens.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/auth/JWT/refreshTokens.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/auth/RoleBasedAccess/Roles.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/auth/RoleBasedAccess/accessControl.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/auth/passportConfig.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/controller/Trip/tripController.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/controller/adminController/approversController.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/controller/adminController/departmentController.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/controller/adminController/rolesController.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/controller/adminController/userController.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/controller/adminController/vehicleController.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/controller/auth/authController.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/handlers/CRUD Handlers/general/create.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/handlers/CRUD Handlers/general/delete.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/handlers/CRUD Handlers/general/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/handlers/CRUD Handlers/general/read.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/handlers/CRUD Handlers/general/update.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/handlers/MailHandler/MailHandler.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/handlers/authHandler/LogOut.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/handlers/authHandler/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/handlers/authHandler/login.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/handlers/authHandler/updatePassword.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/handlers/travelHandlers/approveTravel.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/handlers/travelHandlers/createTravel.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/handlers/travelHandlers/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/handlers/userHandlers/CreateUser.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/handlers/userHandlers/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/Trip.model.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/departments.model.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/modelSync.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/roles.model.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/user.model.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/vehicle.model.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/admin.router.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/auth.router.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/trips.router.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/errorHandlers.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/handlers/travelHandlers/resourceAllocation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/Db/db.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/config/Db/db.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/auth/JWT/refreshTokens.js" beforeDir="false" afterPath="$PROJECT_DIR$/config/auth/JWT/refreshTokens.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handlers/authHandler/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/authHandler/login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handlers/travelHandlers/approveTravel.js" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/travelHandlers/approveTravel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handlers/travelHandlers/createTravel.js" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/travelHandlers/createTravel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handlers/travelHandlers/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/travelHandlers/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/admin.router.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/admin.router.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/trips.router.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/trips.router.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,6 +32,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Eugooti&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Eugooti/vehicle_requisition_api.git&quot;,
+    &quot;accountId&quot;: &quot;d66ad949-dd11-413b-a94e-dd6d7818209b&quot;
+  }
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 6
 }</component>
@@ -136,7 +115,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-deb605915726-JavaScript-WS-243.22562.222" />
+        <option value="bundled-js-predefined-d6986cc7102b-822845ee3bb5-JavaScript-WS-243.23654.120" />
       </set>
     </attachedChunks>
   </component>
@@ -163,6 +142,10 @@
       <workItem from="1737090545545" duration="16666000" />
       <workItem from="1737114566213" duration="59000" />
       <workItem from="1737114664733" duration="800000" />
+      <workItem from="1737118449728" duration="628000" />
+      <workItem from="1737199929018" duration="4058000" />
+      <workItem from="1737354493217" duration="5968000" />
+      <workItem from="1737371258893" duration="4278000" />
     </task>
     <servers />
   </component>
