@@ -22,7 +22,7 @@ class JwtTokens {
             roles:user.roles
         };
         return jwt.sign(payload, process.env.REFRESH_SECRET_KEY, {
-            expiresIn: '2h'
+            expiresIn: '1h'
         })
     }
 

@@ -26,8 +26,9 @@ const rolesModel = dbConnection.define('roles', {
         allowNull: false,
         references: {
             model: 'departments',
-            key: 'id',
-        }
+            key: 'id'
+        },
+        onUpdate: 'CASCADE'
     }
 })
 

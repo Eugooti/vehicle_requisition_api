@@ -12,8 +12,13 @@ const CreateUser = async (model,req,res) => {
           salt
       }
       const result = await model.create(user);
+
+      const {id,departmentId} = result
+
+      const data = {id:id,departmentId:departmentId};
+
       if (result) {
-          return successTransaction(res,'created', result);
+          return successTransaction(res,'created', data);
       }
 
   }catch(err) {

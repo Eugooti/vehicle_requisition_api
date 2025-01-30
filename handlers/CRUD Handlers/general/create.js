@@ -15,19 +15,16 @@ const create = async (model,req,res) => {
 const createMany = async (model,req,res) => {
     try {
 
-        const data = req.body;
-
-        if (Array.isArray(data)) {
+        if (!Array.isArray(req.body)) {
             return res.status(400).json({ error: 'Request body must be an array' });
         }
 
         const result = await model.bulkCreate(req.body);
 
-        const result2 = successTransaction(res,"created")
+        console.log(result);
 
-        if (result) {
-            return {success:true,result2};
-        }
+        successTransaction(res,"created",result)
+
 
     }catch(err){
         return handleErrors(res,err)

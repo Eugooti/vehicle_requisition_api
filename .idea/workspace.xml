@@ -5,17 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bdc2914e-af0a-4c60-af94-768411d4cf41" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/handlers/travelHandlers/resourceAllocation.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controller/Trip/ReservationsController.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/handlers/travelHandlers/reservation.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/reservations.model.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/Db/db.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/config/Db/db.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/auth/JWT/refreshTokens.js" beforeDir="false" afterPath="$PROJECT_DIR$/config/auth/JWT/refreshTokens.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/auth/JWT/JWTAuthentication.js" beforeDir="false" afterPath="$PROJECT_DIR$/config/auth/JWT/JWTAuthentication.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/auth/RoleBasedAccess/Roles.js" beforeDir="false" afterPath="$PROJECT_DIR$/config/auth/RoleBasedAccess/Roles.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handlers/CRUD Handlers/general/create.js" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/CRUD Handlers/general/create.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handlers/CRUD Handlers/general/read.js" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/CRUD Handlers/general/read.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/handlers/authHandler/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/authHandler/login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handlers/travelHandlers/approveTravel.js" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/travelHandlers/approveTravel.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handlers/travelHandlers/createTravel.js" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/travelHandlers/createTravel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handlers/authHandler/updatePassword.js" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/authHandler/updatePassword.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/handlers/travelHandlers/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/travelHandlers/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handlers/userHandlers/CreateUser.js" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/userHandlers/CreateUser.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/Trip.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/Trip.model.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/modelSync.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/modelSync.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/roles.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/roles.model.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/user.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/user.model.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/vehicle.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/vehicle.model.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/admin.router.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/admin.router.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/trips.router.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/trips.router.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,6 +46,31 @@
     &quot;assignee&quot;: &quot;Eugooti&quot;
   }
 }</component>
+  <component name="GitToolBoxStore">
+    <option name="recentBranches">
+      <RecentBranches>
+        <option name="branchesForRepo">
+          <list>
+            <RecentBranchesForRepo>
+              <option name="branches">
+                <list>
+                  <RecentBranch>
+                    <option name="branchName" value="requisition" />
+                    <option name="lastUsedInstant" value="1737380525" />
+                  </RecentBranch>
+                  <RecentBranch>
+                    <option name="branchName" value="main" />
+                    <option name="lastUsedInstant" value="1737380447" />
+                  </RecentBranch>
+                </list>
+              </option>
+              <option name="repositoryRootUrl" value="file://$PROJECT_DIR$" />
+            </RecentBranchesForRepo>
+          </list>
+        </option>
+      </RecentBranches>
+    </option>
+  </component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/Eugooti/vehicle_requisition_api.git&quot;,
@@ -53,30 +86,35 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Node.js.Roles.js.executor&quot;: &quot;Run&quot;,
-    &quot;Node.js.db.config.js.executor&quot;: &quot;Run&quot;,
-    &quot;Node.js.index.js.executor&quot;: &quot;Run&quot;,
-    &quot;Node.js.testss.js.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;javascript.nodejs.core.library.configured.version&quot;: &quot;22.11.0&quot;,
-    &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;22.10.6&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/640/WebstormProjects/vehicle_allocation_api/handlers/CRUD Handlers/withMail&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;npm.start.executor&quot;: &quot;Run&quot;,
-    &quot;npm.stat.executor&quot;: &quot;Run&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\WebStorm 2024.2.1\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Node.js.Roles.js.executor": "Run",
+    "Node.js.db.config.js.executor": "Run",
+    "Node.js.index.js.executor": "Run",
+    "Node.js.testss.js.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "#1 on requisition",
+    "javascript.nodejs.core.library.configured.version": "22.11.0",
+    "javascript.nodejs.core.library.typings.version": "22.10.6",
+    "last_opened_file_path": "C:/Users/640/WebstormProjects/vehicle_allocation_api/handlers/CRUD Handlers/withMail",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "npm.start.executor": "Run",
+    "npm.stat.executor": "Run",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\WebStorm 2024.2.1\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
+    ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\640\WebstormProjects\vehicle_allocation_api\handlers\CRUD Handlers\withMail" />
@@ -115,7 +153,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-822845ee3bb5-JavaScript-WS-243.23654.120" />
+        <option value="bundled-js-predefined-d6986cc7102b-822845ee3bb5-JavaScript-WS-243.23654.157" />
       </set>
     </attachedChunks>
   </component>
@@ -145,7 +183,22 @@
       <workItem from="1737118449728" duration="628000" />
       <workItem from="1737199929018" duration="4058000" />
       <workItem from="1737354493217" duration="5968000" />
-      <workItem from="1737371258893" duration="4278000" />
+      <workItem from="1737371258893" duration="4833000" />
+      <workItem from="1737436878869" duration="1179000" />
+      <workItem from="1737464158051" duration="1977000" />
+      <workItem from="1737524540390" duration="707000" />
+      <workItem from="1737608598723" duration="15274000" />
+      <workItem from="1737643271655" duration="161000" />
+      <workItem from="1737643737203" duration="1078000" />
+      <workItem from="1737697146927" duration="3313000" />
+      <workItem from="1737716771091" duration="20577000" />
+      <workItem from="1737801091042" duration="11446000" />
+      <workItem from="1737958326081" duration="2609000" />
+      <workItem from="1737968936610" duration="317000" />
+      <workItem from="1737969461438" duration="1060000" />
+      <workItem from="1737978571818" duration="4584000" />
+      <workItem from="1738058881500" duration="12819000" />
+      <workItem from="1738214312092" duration="1882000" />
     </task>
     <servers />
   </component>
