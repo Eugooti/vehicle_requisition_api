@@ -1,9 +1,9 @@
 const departments = require("./departments.model");
 const users = require("./user.model");
 const vehicle = require("./vehicle.model");
-const trips = require("./Trip.model");
 const roles = require('./roles.model');
-const reservations = require('./reservations.model');
+const trips = require("./Trip.model");
+const schedule = require('./schedule.model');
 
 
 const modelSync = async () => {
@@ -13,7 +13,7 @@ const modelSync = async () => {
       await vehicle.sync();
       await roles.sync();
       await trips.sync();
-      await reservations.sync();
+      await schedule.sync();
 
       console.log("Model sync successfully");
       return true

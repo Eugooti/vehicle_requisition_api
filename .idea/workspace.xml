@@ -5,25 +5,40 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bdc2914e-af0a-4c60-af94-768411d4cf41" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/controller/Trip/ReservationsController.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/handlers/travelHandlers/reservation.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/reservations.model.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/handlers/MailHandler/SMSHandler.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/handlers/travelHandlers/AvailableVehicles.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/handlers/travelHandlers/ReadReports.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/handlers/travelHandlers/ReadRequisition.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/handlers/travelHandlers/RecallTrip.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/handlers/travelHandlers/allocation.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/handlers/travelHandlers/approve.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/handlers/travelHandlers/deallocate.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/handlers/travelHandlers/ownMeans.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/handlers/travelHandlers/readSchedules.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/handlers/userHandlers/readUsers.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/auth/JWT/JWTAuthentication.js" beforeDir="false" afterPath="$PROJECT_DIR$/config/auth/JWT/JWTAuthentication.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/auth/RoleBasedAccess/Roles.js" beforeDir="false" afterPath="$PROJECT_DIR$/config/auth/RoleBasedAccess/Roles.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handlers/CRUD Handlers/general/create.js" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/CRUD Handlers/general/create.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handlers/CRUD Handlers/general/read.js" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/CRUD Handlers/general/read.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handlers/authHandler/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/authHandler/login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handlers/authHandler/updatePassword.js" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/authHandler/updatePassword.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/Trip/ReservationsController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controller/Trip/ReservationsController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/adminController/approversController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controller/adminController/approversController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/adminController/departmentController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controller/adminController/departmentController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/adminController/rolesController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controller/adminController/rolesController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/adminController/vehicleController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controller/adminController/vehicleController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handlers/CRUD Handlers/general/create.js" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/CRUD Handlers/create.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handlers/CRUD Handlers/general/delete.js" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/CRUD Handlers/delete.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handlers/CRUD Handlers/general/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/CRUD Handlers/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handlers/CRUD Handlers/general/read.js" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/CRUD Handlers/read.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handlers/CRUD Handlers/general/update.js" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/CRUD Handlers/update.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/handlers/travelHandlers/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/travelHandlers/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handlers/travelHandlers/reservation.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/handlers/userHandlers/CreateUser.js" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/userHandlers/CreateUser.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handlers/userHandlers/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/userHandlers/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/Trip.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/Trip.model.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/modelSync.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/modelSync.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/roles.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/roles.model.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/reservations.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/schedule.model.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/user.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/user.model.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/vehicle.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/vehicle.model.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/admin.router.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/admin.router.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/trips.router.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/trips.router.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/testss.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/testss.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,6 +53,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="requisition" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -56,7 +76,7 @@
                 <list>
                   <RecentBranch>
                     <option name="branchName" value="requisition" />
-                    <option name="lastUsedInstant" value="1737380525" />
+                    <option name="lastUsedInstant" value="1738228278" />
                   </RecentBranch>
                   <RecentBranch>
                     <option name="branchName" value="main" />
@@ -74,8 +94,9 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/Eugooti/vehicle_requisition_api.git&quot;,
-    &quot;accountId&quot;: &quot;d66ad949-dd11-413b-a94e-dd6d7818209b&quot;
-  }
+    &quot;accountId&quot;: &quot;29dbe420-2199-4238-9e1c-6a7a91220c69&quot;
+  },
+  &quot;editorReviewEnabled&quot;: false
 }</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 6
@@ -86,47 +107,53 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Node.js.Roles.js.executor": "Run",
-    "Node.js.db.config.js.executor": "Run",
-    "Node.js.index.js.executor": "Run",
-    "Node.js.testss.js.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "#1 on requisition",
-    "javascript.nodejs.core.library.configured.version": "22.11.0",
-    "javascript.nodejs.core.library.typings.version": "22.10.6",
-    "last_opened_file_path": "C:/Users/640/WebstormProjects/vehicle_allocation_api/handlers/CRUD Handlers/withMail",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "npm.start.executor": "Run",
-    "npm.stat.executor": "Run",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\WebStorm 2024.2.1\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Node.js.Roles.js.executor&quot;: &quot;Run&quot;,
+    &quot;Node.js.SMSHandler.js.executor&quot;: &quot;Run&quot;,
+    &quot;Node.js.db.config.js.executor&quot;: &quot;Run&quot;,
+    &quot;Node.js.index.js.executor&quot;: &quot;Run&quot;,
+    &quot;Node.js.testss.js.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;requisition&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;javascript.nodejs.core.library.configured.version&quot;: &quot;22.11.0&quot;,
+    &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;22.10.6&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/640/WebstormProjects/vehicle_allocation_api&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;npm.start.executor&quot;: &quot;Run&quot;,
+    &quot;npm.stat.executor&quot;: &quot;Run&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\WebStorm 2024.2.1\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\640\WebstormProjects\vehicle_allocation_api\handlers\CRUD Handlers\withMail" />
       <recent name="C:\Users\640\WebstormProjects\vehicle_allocation_api\config\auth" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\640\WebstormProjects\vehicle_allocation_api\handlers\CRUD Handlers" />
       <recent name="C:\Users\640\WebstormProjects\vehicle_allocation_api\handlers\CRUD Handlers\general" />
       <recent name="C:\Users\640\WebstormProjects\vehicle_allocation_api\config\auth\JWT" />
     </key>
   </component>
   <component name="RunManager" selected="npm.start">
     <configuration name="Roles.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/config/auth/RoleBasedAccess/Roles.js" working-dir="$PROJECT_DIR$/config/auth/RoleBasedAccess">
+      <method v="2" />
+    </configuration>
+    <configuration name="SMSHandler.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/handlers/MailHandler/SMSHandler.js" working-dir="$PROJECT_DIR$/handlers/MailHandler">
       <method v="2" />
     </configuration>
     <configuration name="testss.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/utils/testss.js" working-dir="$PROJECT_DIR$/utils">
@@ -145,8 +172,9 @@
     <recent_temporary>
       <list>
         <item itemvalue="npm.start" />
-        <item itemvalue="Node.js.Roles.js" />
         <item itemvalue="Node.js.testss.js" />
+        <item itemvalue="Node.js.SMSHandler.js" />
+        <item itemvalue="Node.js.Roles.js" />
       </list>
     </recent_temporary>
   </component>
@@ -199,6 +227,33 @@
       <workItem from="1737978571818" duration="4584000" />
       <workItem from="1738058881500" duration="12819000" />
       <workItem from="1738214312092" duration="1882000" />
+      <workItem from="1738300214960" duration="4250000" />
+      <workItem from="1738512635001" duration="6434000" />
+      <workItem from="1738566087258" duration="85000" />
+      <workItem from="1738566239440" duration="6484000" />
+      <workItem from="1738659251625" duration="3508000" />
+      <workItem from="1738734079923" duration="641000" />
+      <workItem from="1738734776447" duration="13981000" />
+      <workItem from="1738778099649" duration="3739000" />
+      <workItem from="1738835285778" duration="272000" />
+      <workItem from="1738836409379" duration="4644000" />
+      <workItem from="1738905649757" duration="1251000" />
+      <workItem from="1738908389659" duration="1763000" />
+      <workItem from="1738915969990" duration="1859000" />
+      <workItem from="1739044825435" duration="1515000" />
+      <workItem from="1739097081963" duration="40000" />
+      <workItem from="1739097163278" duration="1827000" />
+      <workItem from="1739166274791" duration="5362000" />
+      <workItem from="1739182915860" duration="35000" />
+      <workItem from="1739194020762" duration="2069000" />
+      <workItem from="1739212665829" duration="3500000" />
+      <workItem from="1739252178347" duration="11716000" />
+      <workItem from="1739336512865" duration="4801000" />
+      <workItem from="1739445388057" duration="1145000" />
+      <workItem from="1739771253281" duration="18669000" />
+      <workItem from="1739880371904" duration="863000" />
+      <workItem from="1739902978272" duration="13027000" />
+      <workItem from="1739921448074" duration="5217000" />
     </task>
     <servers />
   </component>

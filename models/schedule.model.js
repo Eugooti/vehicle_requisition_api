@@ -1,7 +1,7 @@
 const dbConnection = require('../config/Db/db.config')
 const {DataTypes} = require('sequelize');
 
-const reservations = dbConnection.define('reservations', {
+const reservations = dbConnection.define('schedule', {
     id:{
         type: DataTypes.INTEGER,
         allowNull: false,
@@ -16,7 +16,7 @@ const reservations = dbConnection.define('reservations', {
             key: 'id',
         },
         onUpdate: 'CASCADE',
-        unique:true
+        unique:false
     },
     tripId:{
         type: DataTypes.INTEGER,
@@ -34,6 +34,14 @@ const reservations = dbConnection.define('reservations', {
     },
     pickupTime: {
         type: DataTypes.TIME,
+        allowNull: false,
+    },
+    returnTime: {
+        type: DataTypes.TIME,
+        allowNull: false,
+    },
+    returnDate: {
+        type: DataTypes.DATEONLY,
         allowNull: false,
     }
 })

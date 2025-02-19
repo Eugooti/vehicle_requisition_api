@@ -1,4 +1,4 @@
-const model = require('../../models/reservations.model')
-const {CRUDMethods} = require("../../handlers/CRUD Handlers/general");
+const model = require('../../models/schedule.model')
+const {TravelHandlers} = require("../../handlers/travelHandlers");
 
-module.exports = CRUDMethods(model)
+module.exports = TravelHandlers(model);

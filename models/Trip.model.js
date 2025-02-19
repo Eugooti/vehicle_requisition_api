@@ -101,6 +101,10 @@ const trip = dbConnection.define('trip', {
         },
         onUpdate: 'CASCADE'  // Update trip when the associated user's id is updated
     },
+    allocationMode:{
+        type: DataTypes.ENUM("Own Means","Allocated"),
+        allowNull: true,
+    },
     allocatorId:{
         type: DataTypes.INTEGER,
         allowNull: true,

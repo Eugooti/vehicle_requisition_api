@@ -27,7 +27,10 @@ const users = dbConnection.define('users', {
         allowNull: false,
         unique: true
     },
-
+    grade:{
+        type: DataTypes.STRING,
+        allowNull: false,
+    },
     designation:{
         type: DataTypes.STRING,
         allowNull: false

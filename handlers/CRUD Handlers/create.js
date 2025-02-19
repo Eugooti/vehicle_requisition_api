@@ -1,4 +1,4 @@
-const {handleErrors, successTransaction} = require("../../../utils/errorHandlers");
+const {handleErrors, successTransaction} = require("../../utils/errorHandlers");
 const {mergeDefaults} = require("sequelize/lib/utils");
 const create = async (model,req,res) => {
     try {
@@ -21,12 +21,11 @@ const createMany = async (model,req,res) => {
 
         const result = await model.bulkCreate(req.body);
 
-        console.log(result);
-
         successTransaction(res,"created",result)
 
 
     }catch(err){
+        console.log(err)
         return handleErrors(res,err)
     }
 }

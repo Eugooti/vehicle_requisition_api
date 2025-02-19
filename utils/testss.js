@@ -1,14 +1,7 @@
-const intern={
-    name: 'CRUD Methods',
-    task: 'vehicle_allocation',
-}
+const timeStamps = new Date().toISOString();
+const date = timeStamps.split('T')[0];
+const [hour,min] = timeStamps.split('T')[1].split(':')
+const time = `${hour}:${min}`;
 
-const ictOfficer = {
-    ...intern,
-    date: new Date(),
-    deadline: "1 month"
-}
-
-console.log(ictOfficer)
-
-console.log({intern:intern})
+console.log(date);
+console.log(time);
