@@ -125,6 +125,10 @@ const trip = dbConnection.define('trip', {
     endTime:{
         type: DataTypes.DATE,
         allowNull: true,
+    },
+    denialReason:{
+        type: DataTypes.STRING,
+        allowNull: true,
     }
 
 })

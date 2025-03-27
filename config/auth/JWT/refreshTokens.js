@@ -5,7 +5,7 @@ const {JwtTokens} = require("./jwtTokens");
 // Refresh token route
 
 const refreshAccessToken = (req, res) => {
-    const refreshToken = req.cookies.refreshToken;  // Get refresh token from cookies
+    const refreshToken = req.cookies.refreshToken  // Get refresh token from cookies
     if (!refreshToken) {
         return res.status(403).json({ message: 'Refresh token not found, login again' });
     }

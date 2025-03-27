@@ -8,7 +8,7 @@ const {accessControl} = require("../config/auth/RoleBasedAccess/accessControl");
 
 const router = express.Router();
 
-router.route("/user/create").post(catchErrors(userController.createUser))
+router.route("/user/create").post(accessControl(['create-user']),catchErrors(userController.createUser))
 router.route("/users/read").get(catchErrors(userController.readUsers))
 router.route("/users/read/:id").get(catchErrors(userController.readById))
 router.route('/users/read/department/:id').get(catchErrors(userController.readByDpt))

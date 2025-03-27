@@ -16,7 +16,12 @@ const CreateUser = async (model,req,res) => {
       }
       const result = await model.create(user,{transaction});
 
-      const formatRoles = [...roles,"applicant"].map((role)=>({
+
+      const formatRoles = roles? [...roles,"applicant"].map((role)=>({
+          role: role,
+          userId:result.id,
+          departmentId
+      })):['applicant'].map((role)=>({
           role: role,
           userId:result.id,
           departmentId

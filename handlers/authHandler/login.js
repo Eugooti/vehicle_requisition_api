@@ -46,6 +46,12 @@ const Login = async (req, res, next) => {
                 const authToken = tokenGenerator.generateAccessToken(userResponse);
                 const refreshToken = tokenGenerator.generateRefreshToken(userResponse);
 
+                const authorization = {
+                    authToken,
+                    refreshToken,
+                }
+
+
                 // Set headers and cookies
                 res.setHeader('Authorization', `Bearer ${authToken}`);
                 res.setHeader('RefreshToken', `Bearer ${refreshToken}`);
@@ -75,6 +81,7 @@ const Login = async (req, res, next) => {
                     success: true,
                     message: 'Login successful',
                     user: userResponse,
+                    authorization
                 });
             });
         })(req, res, next);

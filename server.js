@@ -15,6 +15,8 @@ require('dotenv').config();
 
 
 const port = process.env.PORT || 4500;
+const host='192.168.1.91'
+
 const generateSecretKey = () => {
     return crypto.randomBytes(32).toString('hex');
 };
@@ -24,7 +26,7 @@ const app = express()
 modelSync().then(connection => {
     if (connection) {
         app.use(cors({
-            origin: ['http://localhost:5174','http://localhost:5173'], // Frontend URL
+            origin: ['http://localhost:5174','http://localhost:5173','http://192.168.1.91:5173'], // Frontend URL
             methods: ['GET', 'POST', 'DELETE', 'PUT'],
             credentials: true
         }));
@@ -44,8 +46,9 @@ modelSync().then(connection => {
 
         app.use(notFound)
 
-        app.listen(port, () => {
+        app.listen(port,() => {
             console.log(`Server running on http://localhost:${port}/ebk`);
+            console.log(`Server running on http://${host}:${port}/ebk`);
         })
     }
     else console.log(`Unable to connect to the database.`);

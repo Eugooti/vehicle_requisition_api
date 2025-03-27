@@ -29,8 +29,9 @@ const readSchedules = async (req, res) => {
 
         const formatTrips = trips.map(trip => ({
             ...trip,
-            applicant:`${findUser(trip.userId).firstName} ${findUser(trip.userId).lastName}`,
-            driverName:`${findUser(trip.driverId).firstName} ${findUser(trip.driverId).lastName}`,
+            applicant:`${findUser(trip.userId)?.firstName} ${findUser(trip.userId)?.lastName}`,
+            driverName:`${findUser(trip.driverId)?.firstName} ${findUser(trip.driverId)?.lastName}`,
+            driverID:trip.driverId
         }))
 
 
@@ -64,7 +65,7 @@ const readSchedules = async (req, res) => {
             if (vehicle) {
                 if (!acc[vehicle.id]) {
                     acc[vehicle.id] = {
-                        vehicle: { make:vehicle.make,model:vehicle.model,numberPlate:vehicle.numberPlate },
+                        vehicle: { make:vehicle.make,model:vehicle.model,numberPlate:vehicle.numberPlate,vId:vehicle.id, },
                         trips: []
                     };
                 }
@@ -81,12 +82,14 @@ const readSchedules = async (req, res) => {
                 vehicleMake:vehicle.vehicle.make,
                 model:vehicle.vehicle.model,
                 numberPlate:vehicle.vehicle.numberPlate,
+                vehicleID:vehicle.vehicle.vId
             }))
         })
 
         return successTransaction(res, 'retrieved', formattedData);
 
     } catch (err) {
+        console.log(err)
         return handleErrors(res, err);
     }
 };

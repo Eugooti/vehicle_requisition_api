@@ -13,7 +13,7 @@ const approve = async (req, res) => {
     const transaction = await sequelize.transaction(); // Initialize transaction
     try {
         const id = req.params.id;
-        const { approverId, approvalStatus } = req.body; // Ensure this is req.body, not res.body
+        const { approverId, approvalStatus,reason } = req.body; // Ensure this is req.body, not res.body
 
         const trip = await tripsModel.findByPk(id);
         if (!trip) throw new Error("Trip not found");
@@ -23,10 +23,11 @@ const approve = async (req, res) => {
 
         if (approvalStatus === "Rejected") {
             trip.travelStatus ='Canceled'
+            trip.denialReason = reason;
             const user = await usersModel.findByPk(trip.userId);
-            const message = `Hello, Your requisition from ${trip.pickupPoint} to ${trip.destination} on ${trip.pickupDate} has been rejected.`;
+            const message = `Hello, Your requisition from ${trip.pickupPoint} to ${trip.destination} on ${trip.pickupDate} has been rejected.\nReason: ${reason}`;
 
-            const sendEmail = await MailHandler(user.email,"Requisition Rejected",`Your requisition from ${trip.pickupPoint} to ${trip.destination} on ${trip.pickupDate} has been rejected.`);
+            const sendEmail = await MailHandler(user.email,"Requisition Rejected",`Your requisition from ${trip.pickupPoint} to ${trip.destination} on ${trip.pickupDate} has been rejected.\nReason:${reason}`);
             const sendMessage = await SMSHandler(user.phone, message);
 
             if (!sendMessage.success||!sendEmail.success) {
