@@ -10,6 +10,7 @@ const router = express.Router();
 
 router.route("/user/create").post(accessControl(['create-user']),catchErrors(userController.createUser))
 router.route("/users/read").get(catchErrors(userController.readUsers))
+router.route('/user/role/:role').get(catchErrors(userController.readUsersByRole))
 router.route("/users/read/:id").get(catchErrors(userController.readById))
 router.route('/users/read/department/:id').get(catchErrors(userController.readByDpt))
 router.route("/users/update/:id").put(catchErrors(userController.update))

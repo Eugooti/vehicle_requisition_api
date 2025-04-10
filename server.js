@@ -4,7 +4,7 @@ const cors = require('cors');
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
-const modelSync = require('./models/modelSync')
+const modelSync = require('./models/Sync.model')
 const crypto = require("crypto");
 const authRoutes = require('./routes/auth.router')
 const tripsRoutes = require('./routes/trips.router')
@@ -15,7 +15,7 @@ require('dotenv').config();
 
 
 const port = process.env.PORT || 4500;
-const host='192.168.1.91'
+const host='192.168.1.155'
 
 const generateSecretKey = () => {
     return crypto.randomBytes(32).toString('hex');
@@ -26,7 +26,7 @@ const app = express()
 modelSync().then(connection => {
     if (connection) {
         app.use(cors({
-            origin: ['http://localhost:5174','http://localhost:5173','http://192.168.1.91:5173'], // Frontend URL
+            origin: ['http://localhost:5174','http://localhost:5173',`http://${host}:5173`], // Frontend URL
             methods: ['GET', 'POST', 'DELETE', 'PUT'],
             credentials: true
         }));
@@ -41,8 +41,8 @@ modelSync().then(connection => {
         }));
 
         app.use('/ebk',authRoutes);
-        app.use('/ebk',tripsRoutes)
-        app.use('/ebk',adminRoutes)
+        app.use('/ebk',authenticateToken,tripsRoutes)
+        app.use('/ebk',authenticateToken,adminRoutes)
 
         app.use(notFound)
 

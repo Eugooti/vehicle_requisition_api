@@ -6,11 +6,13 @@ const {Op} = require('sequelize');
 
 const readSchedules = async (req, res) => {
     try {
-        const today = new Date().toISOString().split('T')[0];
+        const today = new Date().toISOString().split('T')[0]; // Format: 'YYYY-MM-DD'
 
-        // Fetch relevant trips
         const trips = await tripsModel.findAll({
-            where: { pickupDate: today },
+            where: {
+                startDate: { [Op.lte]: today },
+                endDate: { [Op.gte]: today }
+            },
             raw: true
         });
 
@@ -89,7 +91,6 @@ const readSchedules = async (req, res) => {
         return successTransaction(res, 'retrieved', formattedData);
 
     } catch (err) {
-        console.log(err)
         return handleErrors(res, err);
     }
 };

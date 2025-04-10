@@ -9,7 +9,7 @@ const users = dbConnection.define('users', {
         primaryKey: true,
         unique: true
     },
-    firstName:{
+        firstName:{
         type: DataTypes.STRING,
         allowNull: false
     },

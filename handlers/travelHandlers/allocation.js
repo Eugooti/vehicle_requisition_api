@@ -72,7 +72,6 @@ const allocation = async (req, res) => {
         return successTransaction(res, 'updated');
 
     } catch (err) {
-        console.log(err)
         await transaction.rollback();
         return handleErrors(res, err);
     }

@@ -1,6 +1,8 @@
 const authConfig = require('../../config/auth/passportConfig');
 const { JwtTokens } = require("../../config/auth/JWT/jwtTokens");
 const rolesModel = require('../../models/roles.model')
+const signatureModel = require("../../models/signatures.model")
+
 
 
 const Login = async (req, res, next) => {
@@ -24,6 +26,8 @@ const Login = async (req, res, next) => {
 
                 // Fetch user roles details
                const roles = await rolesModel.findAll({where:{userId:user.id}})
+               const signature = await signatureModel.findOne({where:{userId:user.id}})
+
 
                 const formattedUserRoles = roles.map((item) => (item.role))
 
@@ -37,6 +41,7 @@ const Login = async (req, res, next) => {
                     phone: user.phone,
                     firstName: user.firstName,
                     lastName: user.lastName,
+                    signature: signature,
                 };
 
 

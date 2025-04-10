@@ -5,7 +5,7 @@ const {JwtTokens} = require("./jwtTokens");
 // Refresh token route
 
 const refreshAccessToken = (req, res) => {
-    const refreshToken = req.cookies.refreshToken  // Get refresh token from cookies
+    const refreshToken = req.cookies.refreshToken || req.headers?.authorization? req.headers?.authorization?.split(' ')[1]:null  // Get refresh token from cookies
     if (!refreshToken) {
         return res.status(403).json({ message: 'Refresh token not found, login again' });
     }
@@ -18,16 +18,18 @@ const refreshAccessToken = (req, res) => {
         const jwtGenerator = new JwtTokens()
 
         // Generate a new access token
-        const newAccessToken = jwtGenerator.generateAccessToken(user);
+        const authToken = jwtGenerator.generateAccessToken(user);
 
-        res.cookie('authToken', newAccessToken, {
+        res.setHeader('Authorization', `Bearer ${authToken}`);
+
+        res.cookie('authToken', authToken, {
             httpOnly: true,
-            sameSite: 'Strict',
             secure: true,
-            maxAge: 3600000,
+            sameSite: 'Strict',
+            maxAge: 3600000, // 1 hour
         });
 
-        return res.status(200).json({ message: 'Access token refreshed',newAccessToken });
+        return res.status(200).json({ message: 'Access token refreshed',authToken });
     });
 };
 

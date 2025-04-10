@@ -55,10 +55,10 @@ exports.itemNotFound = (res,item="Record")=>{
     })
 }
 
-exports.successTransaction = (res,transaction,result=null)=>{
+exports.successTransaction = (res,transaction=null,result=null,message=null)=>{
     return res.status(200).json({
         success:true,
-        message:`Record ${transaction} successfully.`,
+        message:message?message:`Record ${transaction} successfully.`,
         result
     })
 }

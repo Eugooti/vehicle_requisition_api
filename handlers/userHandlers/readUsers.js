@@ -1,6 +1,9 @@
-const {handleErrors, successTransaction} = require("../../utils/errorHandlers");
+const {handleErrors, successTransaction, notFound} = require("../../utils/errorHandlers");
 const userModel = require("../../models/user.model");
 const departmentModel = require("../../models/departments.model");
+const rolesModel = require("../../models/roles.model");
+const {Op} = require("sequelize");
+
 const ReadUsers = async (req,res) => {
   try {
       const usersList = await userModel.findAll();
@@ -30,4 +33,30 @@ const ReadUsers = async (req,res) => {
   }
 }
 
-module.exports = {ReadUsers}
+const readUsersByRole = async (req,res) => {
+  try {
+      const {role} = req.params;
+
+      const roles = await rolesModel.findAll({where:{role:role}});
+
+      if(roles.length <= 0){
+          return notFound(res,"No roles found");
+      }
+
+      const uniqueUserIds = [...new Set(roles.map(r => r.userId))];
+
+      const findUsers = await userModel.findAll({where:{id:{[Op.in]:uniqueUserIds},}});
+
+      const formatUsers = findUsers.map((user,index) => ({
+          id:user.id,
+          name:`${user.firstName} ${user.lastName}`,
+      }))
+
+      return successTransaction(res,"read", formatUsers);
+
+  }catch(err) {
+      return handleErrors(res, err);
+  }
+}
+
+module.exports = {ReadUsers,readUsersByRole}

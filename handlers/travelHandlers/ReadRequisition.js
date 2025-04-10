@@ -25,7 +25,6 @@ const readRequisitionsByDepartment= async (req,res)=>{
         return successTransaction(res,"read",formatTrips)
 
     }catch(err){
-        console.log(err)
         return handleErrors(res,err)
     }
 }

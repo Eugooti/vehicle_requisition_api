@@ -5,17 +5,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bdc2914e-af0a-4c60-af94-768411d4cf41" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/controller/auth/Signature.controller.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/handlers/authHandler/PasswordReset.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/signatures.model.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/auth/JWT/JWTAuthentication.js" beforeDir="false" afterPath="$PROJECT_DIR$/config/auth/JWT/JWTAuthentication.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/auth/JWT/jwtTokens.js" beforeDir="false" afterPath="$PROJECT_DIR$/config/auth/JWT/jwtTokens.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/auth/JWT/refreshTokens.js" beforeDir="false" afterPath="$PROJECT_DIR$/config/auth/JWT/refreshTokens.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/auth/RoleBasedAccess/Roles.js" beforeDir="false" afterPath="$PROJECT_DIR$/config/auth/RoleBasedAccess/Roles.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handlers/CRUD Handlers/create.js" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/CRUD Handlers/create.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handlers/MailHandler/MailHandler.js" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/MailHandler/MailHandler.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handlers/authHandler/LogOut.js" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/authHandler/LogOut.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handlers/authHandler/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/authHandler/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/handlers/authHandler/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/authHandler/login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handlers/travelHandlers/approve.js" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/travelHandlers/approve.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handlers/travelHandlers/ReadReports.js" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/travelHandlers/ReadReports.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handlers/travelHandlers/ReadRequisition.js" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/travelHandlers/ReadRequisition.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handlers/travelHandlers/allocation.js" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/travelHandlers/allocation.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/handlers/travelHandlers/readSchedules.js" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/travelHandlers/readSchedules.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/handlers/userHandlers/CreateUser.js" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/userHandlers/CreateUser.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/Trip.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/Trip.model.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handlers/userHandlers/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/userHandlers/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handlers/userHandlers/readUsers.js" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/userHandlers/readUsers.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/departments.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/departments.model.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/modelSync.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/Sync.model.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/user.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/user.model.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/admin.router.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/admin.router.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/auth.router.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/auth.router.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/errorHandlers.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/errorHandlers.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,6 +65,10 @@
             <RecentBranchesForRepo>
               <option name="branches">
                 <list>
+                  <RecentBranch>
+                    <option name="branchName" value="v1" />
+                    <option name="lastUsedInstant" value="1743054400" />
+                  </RecentBranch>
                   <RecentBranch>
                     <option name="branchName" value="mail-integration" />
                     <option name="lastUsedInstant" value="1739962151" />
@@ -98,7 +116,7 @@
     &quot;Node.js.testss.js.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;mail-integration&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;v1&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;javascript.nodejs.core.library.configured.version&quot;: &quot;22.11.0&quot;,
     &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;22.10.6&quot;,
@@ -265,7 +283,27 @@
       <workItem from="1742967768037" duration="9091000" />
       <workItem from="1742993232552" duration="45000" />
       <workItem from="1742993306276" duration="3519000" />
-      <workItem from="1743052219640" duration="1192000" />
+      <workItem from="1743052219640" duration="1302000" />
+      <workItem from="1743056576318" duration="9535000" />
+      <workItem from="1743136500616" duration="3486000" />
+      <workItem from="1743150728261" duration="1343000" />
+      <workItem from="1743693542760" duration="8189000" />
+      <workItem from="1743766994581" duration="5333000" />
+      <workItem from="1743855893441" duration="2692000" />
+      <workItem from="1743875690780" duration="2564000" />
+      <workItem from="1743949083511" duration="835000" />
+      <workItem from="1743961790842" duration="605000" />
+      <workItem from="1743967284962" duration="429000" />
+      <workItem from="1744003133795" duration="10456000" />
+      <workItem from="1744026437106" duration="668000" />
+      <workItem from="1744088164189" duration="153000" />
+      <workItem from="1744088449249" duration="4920000" />
+      <workItem from="1744112205623" duration="1989000" />
+      <workItem from="1744174168966" duration="4963000" />
+      <workItem from="1744198923650" duration="4620000" />
+      <workItem from="1744264137285" duration="40000" />
+      <workItem from="1744264249826" duration="1216000" />
+      <workItem from="1744276043563" duration="1021000" />
     </task>
     <servers />
   </component>
