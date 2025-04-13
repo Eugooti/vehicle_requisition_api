@@ -19,10 +19,14 @@ const getDepartmentReport =async (req,res) => {
           return items?.find(item=>item.id === id);
       }
 
+      const findSignature = (id,items) => {
+        return items?.find(item=>item.userId === id);
+      }
+
 
       const formattedData = tripsList.filter(item=>item.endTime).map(item => ({
           fullName:`${findItem(item.userId,usersList).firstName} ${findItem(item.userId,usersList)?.lastName}`,
-          applicantSign:findItem(item.userId,signatureList)?.signature||'NA',
+          applicantSign:findSignature(item.userId,signatureList)?.signature,
           date:item.pickupDate,
           time:item.pickupTime,
           designation: findItem(item.userId,usersList).designation,
@@ -34,13 +38,14 @@ const getDepartmentReport =async (req,res) => {
           purpose:item.purpose,
           id:item.id,
           driver:`${findItem(item.driverId,usersList)?.firstName} ${findItem(item.driverId,usersList)?.lastName}`,
-          driverSign:findItem(item.driverId,signatureList)?.signature||'NA',
+          driverSign:findSignature(item.driverId,signatureList)?.signature,
           approver:`${findItem(item.approverId,usersList)?.firstName} ${findItem(item.approverId,usersList)?.lastName}`,
-          approverSign:findItem(item.approverId,signatureList)?.signature||'NA',
+          approverSign:findSignature(item.approverId,signatureList)?.signature,
           vehicle:findItem(item.vehicleId,vehicleList)?.numberPlate,
           allocator:`${findItem(item.allocatorId,usersList)?.firstName} ${findItem(item.allocatorId,usersList)?.lastName}`,
-          allocatorSign:findItem(item.allocatorId,signatureList)?.signature||'NA',
+          allocatorSign:findSignature(item.allocatorId,signatureList)?.signature,
           department:department?.name,
+          departmentId:department?.id,
           returnDate:item?.returnDate,
           notes:item.allocatorNote,
           allocationMode:item.allocationMode,
@@ -57,16 +62,20 @@ const getAllReport =async (req,res) => {
       const usersList = await usersModel.findAll({ raw: true });
       const departmentList = await departmentModel.findAll({ raw: true });
       const vehicleList = await vehicleModel.findAll({ raw: true });
-      const signatureList = await signatures.findAll({ raw: true });
+      const signatureList = await signatures.findAll({raw:true})
 
 
       const findItem = (id,list)=>{
           return list.find(item=>item.id === id);
       }
 
+      const findSignature = (id,items) => {
+          return items?.find(item=>item.userId === id);
+      }
+
       const formattedData = tripsList.filter(item=>item.endTime).map(item => ({
           fullName:`${findItem(item.userId,usersList)?.firstName} ${findItem(item.userId,usersList)?.lastName}`,
-          applicantSign:findItem(item.userId,signatureList)?.signature,
+          applicantSign:findSignature(item.userId,signatureList)?.signature,
           date:item.pickupDate,
           time:item.pickupTime,
           designation: findItem(item.userId,usersList).designation,
@@ -78,12 +87,12 @@ const getAllReport =async (req,res) => {
           purpose:item.purpose,
           id:item.id,
           driver:`${findItem(item.driverId,usersList)?.firstName} ${findItem(item.driverId,usersList)?.lastName}`,
-          driverSign:findItem(item.driverId,signatureList)?.signature,
+          driverSign:findSignature(item.driverId,signatureList)?.signature,
           approver:`${findItem(item.approverId,usersList)?.firstName} ${findItem(item.approverId,usersList)?.lastName}`,
-          approverSign:findItem(item.approverId,signatureList)?.signature,
+          approverSign:findSignature(item.approverId,signatureList)?.signature,
           vehicle:findItem(item.vehicleId,vehicleList)?.numberPlate,
           allocator:`${findItem(item.allocatorId,usersList)?.firstName} ${findItem(item.allocatorId,usersList)?.lastName}`,
-          allocatorSign:findItem(item.allocatorId,signatureList)?.signature,
+          allocatorSign:findSignature(item.allocatorId,signatureList)?.signature,
           department:findItem(item.departmentId,departmentList).name,
           returnDate:item?.returnDate,
           notes:item.allocatorNote,

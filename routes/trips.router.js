@@ -5,6 +5,7 @@ const reservationController = require("../controller/Trip/ReservationsController
 const router = express.Router();
 
 router.route('/trip/create').post(catchErrors(tripsController.createTravel))
+router.route('/trip/update/:id').put(catchErrors(tripsController.update))
 router.route('/trip/read').get(catchErrors(tripsController.readAllRequisition))
 router.route('/trip/read/:id').get(catchErrors(tripsController.readById))
 router.route('/trip/read/department/:id').get(catchErrors(tripsController.readRequisitionsByDepartment))

@@ -9,13 +9,13 @@ const crypto = require("crypto");
 const authRoutes = require('./routes/auth.router')
 const tripsRoutes = require('./routes/trips.router')
 const adminRoutes = require('./routes/admin.router')
-const {notFound} = require("./utils/errorHandlers");
+const {notFound, developmentErrors, productionErrors} = require("./utils/errorHandlers");
 const {authenticateToken} = require("./config/auth/JWT/JWTAuthentication");
 require('dotenv').config();
 
 
 const port = process.env.PORT || 4500;
-const host='192.168.1.155'
+const host='192.168.100.24'
 
 const generateSecretKey = () => {
     return crypto.randomBytes(32).toString('hex');
@@ -45,6 +45,12 @@ modelSync().then(connection => {
         app.use('/ebk',authenticateToken,adminRoutes)
 
         app.use(notFound)
+
+        if (process.env.NODE_ENV === 'development') {
+            app.use(developmentErrors)
+        }else {
+            app.use(productionErrors)
+        }
 
         app.listen(port,() => {
             console.log(`Server running on http://localhost:${port}/ebk`);

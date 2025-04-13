@@ -34,6 +34,7 @@ const Login = async (req, res, next) => {
                 // Default user object
                 const userResponse = {
                     userId: user.id,
+                    initials:`${user.firstName.charAt(0).toUpperCase()}${user.lastName.charAt(0).toUpperCase()}`,
                     email: user.email,
                     roles: formattedUserRoles,
                     departmentId: user.departmentId,
