@@ -4,12 +4,12 @@ require('dotenv').config();
 const MailHandler = async (to, subject, body) => {
     try {
         const transporter = nodemailer.createTransport({
-            host: 'smtp.office365.com',
+            host: process.env.HOST_NAME,
             port: 587,
             secure: false, // Must be false for TLS on port 587
             auth: {
-                user: 'noreply@ebk.go.ke',
-                pass: 'Kenya@2021',
+                user: process.env.EMAIL,
+                pass: process.env.EMAIL_PASSWORD,
             },
             tls: {
                 rejectUnauthorized: false, // Bypass SSL certificate issues
