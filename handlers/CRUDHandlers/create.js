@@ -1,5 +1,4 @@
-const {handleErrors, successTransaction} = require("../../../utils/errorHandlers");
-const {mergeDefaults} = require("sequelize/lib/utils");
+const {handleErrors, successTransaction} = require("../../utils/errorHandlers");
 const create = async (model,req,res) => {
     try {
         const result = await model.create(req.body);
@@ -15,19 +14,14 @@ const create = async (model,req,res) => {
 const createMany = async (model,req,res) => {
     try {
 
-        const data = req.body;
-
-        if (Array.isArray(data)) {
+        if (!Array.isArray(req.body)) {
             return res.status(400).json({ error: 'Request body must be an array' });
         }
 
         const result = await model.bulkCreate(req.body);
 
-        const result2 = successTransaction(res,"created")
+        successTransaction(res,"created",result)
 
-        if (result) {
-            return {success:true,result2};
-        }
 
     }catch(err){
         return handleErrors(res,err)

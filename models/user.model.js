@@ -9,7 +9,7 @@ const users = dbConnection.define('users', {
         primaryKey: true,
         unique: true
     },
-    firstName:{
+        firstName:{
         type: DataTypes.STRING,
         allowNull: false
     },
@@ -22,13 +22,27 @@ const users = dbConnection.define('users', {
         allowNull: false,
         unique: true
     },
+    phone:{
+        type: DataTypes.STRING,
+        allowNull: false,
+        unique: true
+    },
+    grade:{
+        type: DataTypes.STRING,
+        allowNull: false,
+    },
     designation:{
-        type: DataTypes.INTEGER,
+        type: DataTypes.STRING,
         allowNull: false
     },
     departmentId:{
         type: DataTypes.INTEGER,
         allowNull: false,
+        references: {
+            model: 'departments',
+            key: 'id'
+        },
+        onUpdate: 'CASCADE'
     },
     available:{
         type: DataTypes.BOOLEAN,

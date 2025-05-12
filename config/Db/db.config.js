@@ -1,7 +1,8 @@
 const Sequelize = require('sequelize');
+require('dotenv').config();
 
 // Create a Sequelize instance
-const sequelize = new Sequelize('ebk_travel_management', 'root', 'IN16/00054/19', {
+const sequelize = new Sequelize(process.env.DBNAME, process.env.DBUSER, process.env.DBPASSWORD, {
     host: 'localhost', // MySQL server host
     dialect: 'mysql',
     port: 3306,

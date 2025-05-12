@@ -1,6 +1,8 @@
 const authConfig = require('../../config/auth/passportConfig');
 const { JwtTokens } = require("../../config/auth/JWT/jwtTokens");
 const rolesModel = require('../../models/roles.model')
+const signatureModel = require("../../models/signatures.model")
+
 
 
 const Login = async (req, res, next) => {
@@ -11,7 +13,7 @@ const Login = async (req, res, next) => {
             }
 
             if (!user) {
-                return res.status(401).json({
+                return res.status(404).json({
                     success: false,
                     message: info.message
                 });
@@ -24,15 +26,23 @@ const Login = async (req, res, next) => {
 
                 // Fetch user roles details
                const roles = await rolesModel.findAll({where:{userId:user.id}})
+               const signature = await signatureModel.findOne({where:{userId:user.id}})
+
 
                 const formattedUserRoles = roles.map((item) => (item.role))
 
                 // Default user object
                 const userResponse = {
                     userId: user.id,
+                    initials:`${user.firstName.charAt(0).toUpperCase()}${user.lastName.charAt(0).toUpperCase()}`,
                     email: user.email,
                     roles: formattedUserRoles,
-                    departmentId: user.departmentId
+                    departmentId: user.departmentId,
+                    designation: user.designation,
+                    phone: user.phone,
+                    firstName: user.firstName,
+                    lastName: user.lastName,
+                    signature: signature,
                 };
 
 
@@ -41,6 +51,12 @@ const Login = async (req, res, next) => {
                 const tokenGenerator = new JwtTokens();
                 const authToken = tokenGenerator.generateAccessToken(userResponse);
                 const refreshToken = tokenGenerator.generateRefreshToken(userResponse);
+
+                const authorization = {
+                    authToken,
+                    refreshToken,
+                }
+
 
                 // Set headers and cookies
                 res.setHeader('Authorization', `Bearer ${authToken}`);
@@ -70,10 +86,8 @@ const Login = async (req, res, next) => {
                 return res.status(200).json({
                     success: true,
                     message: 'Login successful',
-                    authToken,
                     user: userResponse,
-                    refreshToken,
-                    roles: formattedUserRoles,
+                    authorization
                 });
             });
         })(req, res, next);
