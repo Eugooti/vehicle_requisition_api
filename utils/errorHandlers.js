@@ -9,6 +9,8 @@ exports.catchErrors = (fn) => {
 };
 
 exports.handleErrors = (res, error) => {
+    console.log(error);
+
     if (error.name === 'SequelizeValidationError') {
         return res.status(400).json({
             success: false,
@@ -20,7 +22,7 @@ exports.handleErrors = (res, error) => {
         return res.status(409).json({
             success: false,
             result: null,
-            message: 'Unique constraint error: Duplicate entry found.',
+            message: 'Record already exists.',
             error: error.errors.map(err => err.message), // Extract specific constraint messages
         });
     } else if (error.name === 'SequelizeForeignKeyConstraintError') {

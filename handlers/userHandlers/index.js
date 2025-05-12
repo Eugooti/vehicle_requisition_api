@@ -1,4 +1,4 @@
-const {CRUDMethods} = require("../CRUD Handlers");
+const {CRUDMethods} = require("../CRUDHandlers");
 const {CreateUser} = require("./CreateUser");
 const {ReadUsers, readUsersByRole} = require("./readUsers");
 const userHandlers =  (model) => {

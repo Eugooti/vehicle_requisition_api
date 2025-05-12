@@ -9,13 +9,14 @@ const crypto = require("crypto");
 const authRoutes = require('./routes/auth.router')
 const tripsRoutes = require('./routes/trips.router')
 const adminRoutes = require('./routes/admin.router')
+const reportRoutes = require('./routes/report.router')
 const {notFound, developmentErrors, productionErrors} = require("./utils/errorHandlers");
 const {authenticateToken} = require("./config/auth/JWT/JWTAuthentication");
 require('dotenv').config();
 
 
 const port = process.env.PORT || 4500;
-const host='192.168.100.24'
+const host='192.168.1.82'
 
 const generateSecretKey = () => {
     return crypto.randomBytes(32).toString('hex');
@@ -43,6 +44,7 @@ modelSync().then(connection => {
         app.use('/ebk',authRoutes);
         app.use('/ebk',authenticateToken,tripsRoutes)
         app.use('/ebk',authenticateToken,adminRoutes)
+        app.use('/ebk',authenticateToken,reportRoutes)
 
         app.use(notFound)
 

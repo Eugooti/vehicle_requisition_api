@@ -1,5 +1,4 @@
 const {handleErrors, successTransaction} = require("../../utils/errorHandlers");
-const {mergeDefaults} = require("sequelize/lib/utils");
 const create = async (model,req,res) => {
     try {
         const result = await model.create(req.body);

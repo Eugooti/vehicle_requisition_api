@@ -5,15 +5,36 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bdc2914e-af0a-4c60-af94-768411d4cf41" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.babelrc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controller/Trip/feedback.controller.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controller/reportsController/reports.controller.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/handlers/CRUDHandlers/delete.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/handlers/travelHandlers/TripManagement.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/handlers/travelHandlers/readDriverSchedules.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/feedback.model.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routes/report.router.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handlers/CRUD Handlers/update.js" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/CRUD Handlers/update.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handlers/authHandler/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/authHandler/login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handlers/travelHandlers/ReadReports.js" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/travelHandlers/ReadReports.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/admin.router.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/admin.router.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/adminController/approversController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controller/adminController/approversController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/adminController/departmentController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controller/adminController/departmentController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/adminController/rolesController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controller/adminController/rolesController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/adminController/vehicleController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controller/adminController/vehicleController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/auth/Signature.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/controller/auth/Signature.controller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handlers/CRUD Handlers/create.js" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/CRUDHandlers/create.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handlers/CRUD Handlers/delete.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/handlers/CRUD Handlers/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/CRUDHandlers/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handlers/CRUD Handlers/read.js" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/CRUDHandlers/read.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handlers/CRUD Handlers/update.js" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/CRUDHandlers/update.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handlers/travelHandlers/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/travelHandlers/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handlers/travelHandlers/readSchedules.js" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/travelHandlers/readSchedules.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handlers/userHandlers/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/userHandlers/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/Sync.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/Sync.model.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/auth.router.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/auth.router.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/trips.router.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/trips.router.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/utils/errorHandlers.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/errorHandlers.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/testss.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/testss.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,6 +71,10 @@
               <option name="branches">
                 <list>
                   <RecentBranch>
+                    <option name="branchName" value="production" />
+                    <option name="lastUsedInstant" value="1744579552" />
+                  </RecentBranch>
+                  <RecentBranch>
                     <option name="branchName" value="signature" />
                     <option name="lastUsedInstant" value="1744282932" />
                   </RecentBranch>
@@ -64,10 +89,6 @@
                   <RecentBranch>
                     <option name="branchName" value="requisition" />
                     <option name="lastUsedInstant" value="1738228278" />
-                  </RecentBranch>
-                  <RecentBranch>
-                    <option name="branchName" value="main" />
-                    <option name="lastUsedInstant" value="1737380447" />
                   </RecentBranch>
                 </list>
               </option>
@@ -89,13 +110,20 @@
   &quot;associatedIndex&quot;: 6
 }</component>
   <component name="ProjectId" id="2rc6XtanZPpm0JgPLZrwa5rwQ5n" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;Jest.Auth Handlers.Login.executor&quot;: &quot;Run&quot;,
+    &quot;Jest.Auth Handlers.Password Reset.executor&quot;: &quot;Run&quot;,
+    &quot;Jest.Auth Handlers.Refresh Token.executor&quot;: &quot;Run&quot;,
+    &quot;Jest.Auth Handlers.Update Password.executor&quot;: &quot;Run&quot;,
+    &quot;Jest.Auth Handlers.executor&quot;: &quot;Run&quot;,
+    &quot;Jest.CRUD Operations.executor&quot;: &quot;Run&quot;,
+    &quot;Jest.Travel Requisition Functions.executor&quot;: &quot;Run&quot;,
+    &quot;Jest.User Functions.executor&quot;: &quot;Run&quot;,
     &quot;Node.js.MailHandler.js.executor&quot;: &quot;Run&quot;,
     &quot;Node.js.Roles.js.executor&quot;: &quot;Run&quot;,
     &quot;Node.js.SMSHandler.js.executor&quot;: &quot;Run&quot;,
@@ -104,19 +132,23 @@
     &quot;Node.js.testss.js.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;signature&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;production&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;javascript.nodejs.core.library.configured.version&quot;: &quot;22.11.0&quot;,
-    &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;22.10.6&quot;,
+    &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;22.14.1&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/640/WebstormProjects/vehicle_allocation_api&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs.jest.jest_package&quot;: &quot;C:/Users/640/WebstormProjects/vehicle_allocation_api/node_modules/jest&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;npm.start.executor&quot;: &quot;Run&quot;,
     &quot;npm.stat.executor&quot;: &quot;Run&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.ide.settings.uml&quot;,
+    &quot;npm.test (1).executor&quot;: &quot;Run&quot;,
+    &quot;npm.test.executor&quot;: &quot;Run&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\WebStorm 2024.3.5\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
@@ -138,16 +170,40 @@
     </key>
   </component>
   <component name="RunManager" selected="npm.start">
-    <configuration name="MailHandler.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/handlers/MailHandler/MailHandler.js" working-dir="$PROJECT_DIR$/handlers/MailHandler">
+    <configuration name="CRUD Operations" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <jest-package value="$PROJECT_DIR$/node_modules/jest" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="SUITE" />
+      <test-file value="$PROJECT_DIR$/__test__/CRUD.test.js" />
+      <test-names>
+        <test-name value="CRUD Operations" />
+      </test-names>
       <method v="2" />
     </configuration>
-    <configuration name="Roles.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/config/auth/RoleBasedAccess/Roles.js" working-dir="$PROJECT_DIR$/config/auth/RoleBasedAccess">
+    <configuration name="Travel Requisition Functions" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <jest-package value="$PROJECT_DIR$/node_modules/jest" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="SUITE" />
+      <test-file value="$PROJECT_DIR$/__test__/requisitions.test.js" />
+      <test-names>
+        <test-name value="Travel Requisition Functions" />
+      </test-names>
       <method v="2" />
     </configuration>
-    <configuration name="SMSHandler.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/handlers/MailHandler/SMSHandler.js" working-dir="$PROJECT_DIR$/handlers/MailHandler">
-      <method v="2" />
-    </configuration>
-    <configuration name="testss.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/utils/testss.js" working-dir="$PROJECT_DIR$/utils">
+    <configuration name="User Functions" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <jest-package value="$PROJECT_DIR$/node_modules/jest" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="SUITE" />
+      <test-file value="$PROJECT_DIR$/__test__/user.test.js" />
+      <test-names>
+        <test-name value="User Functions" />
+      </test-names>
       <method v="2" />
     </configuration>
     <configuration name="start" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
@@ -160,20 +216,45 @@
       <envs />
       <method v="2" />
     </configuration>
+    <configuration name="test (1)" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="test" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="test" type="js.build_tools.npm" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="test" />
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Jest.User Functions" />
+      <item itemvalue="Jest.CRUD Operations" />
+      <item itemvalue="Jest.Travel Requisition Functions" />
+      <item itemvalue="npm.test" />
+      <item itemvalue="npm.start" />
+      <item itemvalue="npm.test (1)" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="npm.start" />
-        <item itemvalue="Node.js.MailHandler.js" />
-        <item itemvalue="Node.js.testss.js" />
-        <item itemvalue="Node.js.SMSHandler.js" />
-        <item itemvalue="Node.js.Roles.js" />
+        <item itemvalue="Jest.User Functions" />
+        <item itemvalue="npm.test (1)" />
+        <item itemvalue="Jest.Travel Requisition Functions" />
+        <item itemvalue="Jest.CRUD Operations" />
       </list>
     </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-WS-243.26053.12" />
+        <option value="bundled-js-predefined-d6986cc7102b-6a121458b545-JavaScript-WS-251.25410.117" />
       </set>
     </attachedChunks>
   </component>
@@ -292,7 +373,30 @@
       <workItem from="1744264137285" duration="40000" />
       <workItem from="1744264249826" duration="1216000" />
       <workItem from="1744276043563" duration="5867000" />
-      <workItem from="1744547064378" duration="10473000" />
+      <workItem from="1744547064378" duration="11474000" />
+      <workItem from="1744612914041" duration="5940000" />
+      <workItem from="1744704044650" duration="7884000" />
+      <workItem from="1745060738125" duration="607000" />
+      <workItem from="1745178890404" duration="1628000" />
+      <workItem from="1745180979187" duration="1153000" />
+      <workItem from="1745182274007" duration="8523000" />
+      <workItem from="1745232685275" duration="2692000" />
+      <workItem from="1745235613274" duration="1897000" />
+      <workItem from="1745249886963" duration="58000" />
+      <workItem from="1745267081542" duration="1303000" />
+      <workItem from="1745324413393" duration="1469000" />
+      <workItem from="1745385010011" duration="1718000" />
+      <workItem from="1745397027578" duration="8450000" />
+      <workItem from="1745469452158" duration="12642000" />
+      <workItem from="1745502525591" duration="39000" />
+      <workItem from="1745502648105" duration="428000" />
+      <workItem from="1745568303811" duration="725000" />
+      <workItem from="1746045778759" duration="2876000" />
+      <workItem from="1746277190638" duration="366000" />
+      <workItem from="1747026152245" duration="351000" />
+      <workItem from="1747026816400" duration="6779000" />
+      <workItem from="1747035419273" duration="452000" />
+      <workItem from="1747035915987" duration="33000" />
     </task>
     <servers />
   </component>

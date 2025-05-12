@@ -1,4 +1,3 @@
-const model = require('../../models/vehicle.model')
 const {CRUDMethods} = require("../../handlers/CRUDHandlers");
-
+const model = require('../../models/feedback.model')
 module.exports = CRUDMethods(model)

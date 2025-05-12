@@ -5,17 +5,19 @@ const roles = require('./roles.model');
 const trips = require("./Trip.model");
 const schedule = require('./schedule.model');
 const signature = require("./signatures.model");
+const feedback = require("./feedback.model");
 
 
 const syncModel = async () => {
   try {
       await departments.sync();
+      await roles.sync();
       await users.sync();
       await vehicle.sync();
-      await roles.sync();
       await trips.sync();
       await schedule.sync();
       await signature.sync();
+      await feedback.sync();
 
       console.log("Model sync successfully");
       return true

@@ -1,4 +1,4 @@
-const {CRUDMethods} = require("../CRUD Handlers");
+const {CRUDMethods} = require("../CRUDHandlers");
 const {resourceAllocation} = require("./resourceAllocation");
 const {deallocate} = require("./deallocate");
 const {AvailableVehicles} = require("./AvailableVehicles");
@@ -9,6 +9,8 @@ const {readRequisitionsByDepartment, readAllRequisition} = require("./ReadRequis
 const {approve} = require("./approve");
 const {getDepartmentReport, getAllReport} = require("./ReadReports");
 const {CreateRequisition} = require("./createRequisition");
+const {ReadDriverSchedules} = require("./readDriverSchedules");
+const {TripManagement} = require("./TripManagement");
 
 
 const TravelHandlers = (model) => {
@@ -62,6 +64,14 @@ const TravelHandlers = (model) => {
 
     methods.getAllReport = async (req,res)=>{
         await getAllReport(req,res);
+    }
+
+    methods.driverSchedule = async (req,res)=>{
+        await ReadDriverSchedules(req,res)
+    }
+
+    methods.endTrip = async (req,res)=>{
+        await TripManagement(req,res)
     }
 
     return methods;

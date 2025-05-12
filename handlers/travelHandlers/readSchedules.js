@@ -10,8 +10,8 @@ const readSchedules = async (req, res) => {
 
         const trips = await tripsModel.findAll({
             where: {
-                startDate: { [Op.lte]: today },
-                endDate: { [Op.gte]: today }
+                pickupDate: { [Op.lte]: today },
+                returnDate: { [Op.gte]: today }
             },
             raw: true
         });
@@ -91,6 +91,7 @@ const readSchedules = async (req, res) => {
         return successTransaction(res, 'retrieved', formattedData);
 
     } catch (err) {
+        console.log(err)
         return handleErrors(res, err);
     }
 };

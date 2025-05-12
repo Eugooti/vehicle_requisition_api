@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Vehicle Allocation API Documentation</title>
+    <style>
+        body {
+            font-family: 'Calibri', sans-serif;
+            margin: 40px;
+            line-height: 1.5;
+        }
+        h1 {
+            color: #2F5496;
+            font-size: 24pt;
+        }
+        h2 {
+            color: #2F5496;
+            font-size: 18pt;
+            margin-top: 20px;
+        }
+        h3 {
+            color: #2F5496;
+            font-size: 14pt;
+        }
+        p, li {
+            font-size: 11pt;
+        }
+        .toc {
+            margin: 20px 0;
+            padding: 10px;
+            background-color: #f9f9f9;
+        }
+        .toc li {
+            margin: 5px 0;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        pre {
+            background-color: #f5f5f5;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Vehicle Allocation API Documentation</h1>
+    
+    <div class="toc">
+        <h2>Table of Contents</h2>
+        <ol>
+            <li><a href="#overview">Project Overview</a></li>
+            <li><a href="#tech-stack">Technology Stack</a></li>
+            <li><a href="#architecture">Project Architecture</a></li>
+            <li><a href="#models">Database Models</a></li>
+            <li><a href="#endpoints">API Endpoints</a></li>
+            <li><a href="#auth">Authentication and Authorization</a></li>
+            <li><a href="#business-logic">Business Logic</a></li>
+            <li><a href="#error-handling">Error Handling</a></li>
+            <li><a href="#testing">Testing</a></li>
+            <li><a href="#deployment">Deployment</a></li>
+        </ol>
+    </div>
+    
+    <h2 id="overview">1. Project Overview</h2>
+    <p>The Vehicle Allocation API is a backend system designed to manage and streamline the process of vehicle allocation for travel requests within an organization. The system allows users to create travel requisitions, managers to approve these requests, and administrators to allocate vehicles and drivers to approved trips.</p>
+    
+    <h3>Key Features</h3>
+    <ul>
+        <li>User authentication and role-based access control</li>
+        <li>Travel requisition creation and management</li>
+        <li>Approval workflow for travel requests</li>
+        <li>Vehicle and driver allocation</li>
+        <li>Trip scheduling and tracking</li>
+        <li>Reporting functionality</li>
+        <li>Department management</li>
+        <li>User management</li>
+    </ul>
+    
+    <h2 id="tech-stack">2. Technology Stack</h2>
+    
+    <h3>Backend Framework</h3>
+    <ul>
+        <li><strong>Node.js</strong>: JavaScript runtime environment</li>
+        <li><strong>Express.js</strong>: Web application framework for Node.js</li>
+    </ul>
+    
+    <h3>Database</h3>
+    <ul>
+        <li><strong>MySQL</strong>: Relational database management system</li>
+        <li><strong>Sequelize</strong>: ORM (Object-Relational Mapping) for Node.js</li>
+    </ul>
+    
+    <h3>Authentication</h3>
+    <ul>
+        <li><strong>JSON Web Tokens (JWT)</strong>: For secure authentication</li>
+        <li><strong>Passport.js</strong>: Authentication middleware for Node.js</li>
+    </ul>
+    
+    <h3>Email Services</h3>
+    <ul>
+        <li><strong>Nodemailer</strong>: Module for email sending</li>
+    </ul>
+    
+    <h3>Development Tools</h3>
+    <ul>
+        <li><strong>Nodemon</strong>: Utility for monitoring changes and automatically restarting the server</li>
+        <li><strong>Jest</strong>: JavaScript testing framework</li>
+    </ul>
+    
+    <h3>Other Dependencies</h3>
+    <ul>
+        <li><strong>body-parser</strong>: Middleware for parsing request bodies</li>
+        <li><strong>cors</strong>: Middleware for enabling CORS (Cross-Origin Resource Sharing)</li>
+        <li><strong>dotenv</strong>: Module for loading environment variables</li>
+        <li><strong>express-session</strong>: Session middleware for Express</li>
+        <li><strong>morgan</strong>: HTTP request logger middleware</li>
+    </ul>
+    
+    <h2 id="architecture">3. Project Architecture</h2>
+    <p>The project follows a modular architecture with clear separation of concerns:</p>
+    
+    <h3>Directory Structure</h3>
+    <ul>
+        <li><strong>config/</strong>: Configuration files for database, authentication, and role-based access</li>
+        <li><strong>controller/</strong>: Controllers handling business logic</li>
+        <li><strong>handlers/</strong>: Specialized handlers for specific operations</li>
+        <li><strong>middleware/</strong>: Custom middleware functions</li>
+        <li><strong>models/</strong>: Database models using Sequelize</li>
+        <li><strong>routes/</strong>: API route definitions</li>
+        <li><strong>utils/</strong>: Utility functions and error handlers</li>
+        <li><strong>__test__/</strong>: Test files</li>
+    </ul>
+    
+    <h3>Architecture Flow</h3>
+    <ol>
+        <li>Client sends a request to the API</li>
+        <li>Request is processed through middleware (authentication, validation, etc.)</li>
+        <li>Router directs the request to the appropriate controller</li>
+        <li>Controller uses handlers and models to process the request</li>
+        <li>Response is sent back to the client</li>
+    </ol>
+    
+    <h2 id="models">4. Database Models</h2>
+    <p>The application uses the following database models:</p>
+    
+    <h3>User Model</h3>
+    <ul>
+        <li><strong>Fields</strong>: id, firstName, lastName, email, phone, grade, designation, departmentId, available, password, salt</li>
+        <li><strong>Relationships</strong>: Belongs to Department, has many Roles</li>
+        <li><strong>Purpose</strong>: Stores user information for authentication and identification</li>
+    </ul>
+    
+    <h3>Department Model</h3>
+    <ul>
+        <li><strong>Fields</strong>: id, name, description</li>
+        <li><strong>Relationships</strong>: Has many Users</li>
+        <li><strong>Purpose</strong>: Organizes users into departments</li>
+    </ul>
+    
+    <h3>Role Model</h3>
+    <ul>
+        <li><strong>Fields</strong>: id, name, description</li>
+        <li><strong>Relationships</strong>: Many-to-many with Users</li>
+        <li><strong>Purpose</strong>: Defines roles for role-based access control</li>
+    </ul>
+    
+    <h3>Vehicle Model</h3>
+    <ul>
+        <li><strong>Fields</strong>: id, make, model, registrationNumber, capacity, available</li>
+        <li><strong>Relationships</strong>: Has many Trips</li>
+        <li><strong>Purpose</strong>: Stores information about available vehicles</li>
+    </ul>
+    
+    <h3>Trip Model</h3>
+    <ul>
+        <li><strong>Fields</strong>: id, userId, departmentId, purpose, pickupPoint, destination, travellersCount, pickupDate, pickupTime, returnDate, returnTime, numberOfDays, travelStatus, approvalStatus, approverId, vehicleId, driverId, allocationMode, allocatorId, allocatorNote, startTime, endTime, denialReason</li>
+        <li><strong>Relationships</strong>: Belongs to User, Department, Vehicle</li>
+        <li><strong>Purpose</strong>: Stores information about travel requests and their status</li>
+    </ul>
+    
+    <h3>Schedule Model</h3>
+    <ul>
+        <li><strong>Fields</strong>: id, tripId, date, startTime, endTime</li>
+        <li><strong>Relationships</strong>: Belongs to Trip</li>
+        <li><strong>Purpose</strong>: Manages scheduling of trips</li>
+    </ul>
+    
+    <h3>Signature Model</h3>
+    <ul>
+        <li><strong>Fields</strong>: id, userId, signature</li>
+        <li><strong>Relationships</strong>: Belongs to User</li>
+        <li><strong>Purpose</strong>: Stores digital signatures for approvals</li>
+    </ul>
+    
+    <h2 id="endpoints">5. API Endpoints</h2>
+    <p>The API is organized into three main route groups:</p>
+    
+    <h3>Authentication Routes (<code>/ebk/auth/</code>)</h3>
+    <ul>
+        <li><strong>POST /login</strong>: Authenticate user and generate JWT token</li>
+        <li><strong>GET /logout</strong>: Log out user</li>
+        <li><strong>PUT /updatePassword/:id</strong>: Update user password</li>
+        <li><strong>POST /refreshToken</strong>: Refresh JWT token</li>
+        <li><strong>PUT /getCode</strong>: Get password reset code</li>
+        <li><strong>PUT /verifyCode</strong>: Verify password reset code</li>
+        <li><strong>PUT /changePassword/:id</strong>: Change password after verification</li>
+        <li><strong>POST /signature/create</strong>: Create digital signature</li>
+    </ul>
+    
+    <h3>Trip Management Routes (<code>/ebk/trip/</code>)</h3>
+    <ul>
+        <li><strong>POST /create</strong>: Create a new travel requisition</li>
+        <li><strong>PUT /update/:id</strong>: Update a travel requisition</li>
+        <li><strong>GET /read</strong>: Get all travel requisitions</li>
+        <li><strong>GET /read/:id</strong>: Get a specific travel requisition</li>
+        <li><strong>GET /read/department/:id</strong>: Get travel requisitions by department</li>
+        <li><strong>GET /read/user/:id</strong>: Get travel requisitions by user</li>
+        <li><strong>PUT /approve/:id</strong>: Approve a travel requisition</li>
+        <li><strong>PUT /assign/:id</strong>: Allocate vehicle and driver to a trip</li>
+        <li><strong>PUT /ownMeans/:id</strong>: Mark trip as using own means of transport</li>
+        <li><strong>PUT /startEnd/:id</strong>: Update trip start/end times</li>
+        <li><strong>DELETE /recall/:id</strong>: Delete/recall a trip</li>
+        <li><strong>PUT /deallocate/:id</strong>: Deallocate vehicle from a trip</li>
+        <li><strong>PUT /vehicle/available</strong>: Check available vehicles</li>
+        <li><strong>GET /reports</strong>: Generate reports for all trips</li>
+        <li><strong>GET /reports/:id</strong>: Generate reports for department trips</li>
+    </ul>
+    
+    <h3>Administrative Routes (<code>/ebk/</code>)</h3>
+    <h4>User Management</h4>
+    <ul>
+        <li><strong>POST /user/create</strong>: Create a new user</li>
+        <li><strong>GET /users/read</strong>: Get all users</li>
+        <li><strong>GET /user/role/:role</strong>: Get users by role</li>
+        <li><strong>GET /users/read/:id</strong>: Get a specific user</li>
+        <li><strong>GET /users/read/department/:id</strong>: Get users by department</li>
+        <li><strong>PUT /users/update/:id</strong>: Update a user</li>
+        <li><strong>DELETE /users/delete/:id</strong>: Delete a user</li>
+    </ul>
+    
+    <h4>Department Management</h4>
+    <ul>
+        <li><strong>POST /dpt/create</strong>: Create a new department</li>
+        <li><strong>GET /dpt/read</strong>: Get all departments</li>
+        <li><strong>GET /dpt/read/:id</strong>: Get a specific department</li>
+        <li><strong>GET /dpt/read/user/:id</strong>: Get department by user</li>
+        <li><strong>PUT /dpt/update/:id</strong>: Update a department</li>
+        <li><strong>DELETE /dpt/delete/:id</strong>: Delete a department</li>
+    </ul>
+    
+    <h4>Role Management</h4>
+    <ul>
+        <li><strong>POST /role/create</strong>: Create a new role</li>
+        <li><strong>POST /role/createMany</strong>: Create multiple roles</li>
+        <li><strong>GET /role/read</strong>: Get all roles</li>
+        <li><strong>GET /role/read/:id</strong>: Get a specific role</li>
+        <li><strong>GET /role/read/department/:id</strong>: Get roles by department</li>
+        <li><strong>GET /role/read/user/:id</strong>: Get roles by user</li>
+        <li><strong>PUT /role/update/:id</strong>: Update a role</li>
+        <li><strong>DELETE /role/delete/:id</strong>: Delete a role</li>
+    </ul>
+    
+    <h4>Vehicle Management</h4>
+    <ul>
+        <li><strong>POST /vehicle/create</strong>: Create a new vehicle</li>
+        <li><strong>GET /vehicle/read</strong>: Get all vehicles</li>
+        <li><strong>GET /vehicle/read/:id</strong>: Get a specific vehicle</li>
+        <li><strong>PUT /vehicle/update/:id</strong>: Update a vehicle</li>
+        <li><strong>DELETE /vehicle/delete/:id</strong>: Delete a vehicle</li>
+    </ul>
+    
+    <h2 id="auth">6. Authentication and Authorization</h2>
+    
+    <h3>Authentication</h3>
+    <p>The application uses JWT (JSON Web Tokens) for authentication:</p>
+    <ul>
+        <li>Users log in with their credentials</li>
+        <li>The server validates the credentials and issues a JWT token</li>
+        <li>The token is included in subsequent requests in the Authorization header</li>
+        <li>The server validates the token for each protected route</li>
+        <li>Token refresh mechanism is available for extending sessions</li>
+    </ul>
+    
+    <h3>Authorization</h3>
+    <p>The application implements role-based access control:</p>
+    <ul>
+        <li>Users are assigned one or more roles</li>
+        <li>Each role has a set of privileges</li>
+        <li>Routes are protected with middleware that checks for required privileges</li>
+        <li>Access is granted only if the user has the necessary privileges</li>
+    </ul>
+    
+    <h3>Roles and Privileges</h3>
+    <ul>
+        <li><strong>admin</strong>: Has all privileges</li>
+        <li><strong>manager</strong>: Can apply for trips and approve them</li>
+        <li><strong>hrm</strong>: Has extensive privileges for user management, vehicle management, and trip management</li>
+        <li><strong>driver</strong>: Can start and end trips</li>
+        <li><strong>applicant</strong>: Can only apply for trips</li>
+    </ul>
+    
+    <h2 id="business-logic">7. Business Logic</h2>
+    
+    <h3>Travel Request Workflow</h3>
+    <ol>
+        <li>User creates a travel requisition</li>
+        <li>Manager approves or rejects the requisition</li>
+        <li>If approved, HRM allocates a vehicle and driver or approves own means</li>
+        <li>Driver starts the trip at the scheduled time</li>
+        <li>Driver ends the trip upon completion</li>
+        <li>System updates the status and availability of vehicles and drivers</li>
+    </ol>
+    
+    <h3>Vehicle Allocation Logic</h3>
+    <ul>
+        <li>System checks for available vehicles based on capacity and schedule</li>
+        <li>HRM assigns appropriate vehicle and driver to the trip</li>
+        <li>System updates vehicle and driver availability</li>
+        <li>If no suitable vehicle is available, HRM can approve own means of transport</li>
+    </ul>
+    
+    <h3>Reporting</h3>
+    <ul>
+        <li>System generates reports on trips by department, user, or date range</li>
+        <li>Reports include details on vehicle usage, trip purposes, and costs</li>
+    </ul>
+    
+    <h2 id="error-handling">8. Error Handling</h2>
+    <p>The application implements a robust error handling mechanism:</p>
+    <ul>
+        <li>Custom error handlers for development and production environments</li>
+        <li>Centralized error handling middleware</li>
+        <li>Error logging and reporting</li>
+        <li>Appropriate HTTP status codes and error messages</li>
+    </ul>
+    
+    <h2 id="testing">9. Testing</h2>
+    <p>The application uses Jest for testing:</p>
+    <ul>
+        <li>Unit tests for individual functions and components</li>
+        <li>Integration tests for API endpoints</li>
+        <li>Mock objects and functions for database and external services</li>
+        <li>Test coverage reporting</li>
+    </ul>
+    
+    <h2 id="deployment">10. Deployment</h2>
+    <p>The application can be deployed using the following steps:</p>
+    <ol>
+        <li>Set up a production database</li>
+        <li>Configure environment variables</li>
+        <li>Install dependencies</li>
+        <li>Build the application</li>
+        <li>Start the server</li>
+    </ol>
+    
+    <h3>Environment Variables</h3>
+    <ul>
+        <li><strong>PORT</strong>: Server port</li>
+        <li><strong>DB_HOST</strong>: Database host</li>
+        <li><strong>DB_USER</strong>: Database user</li>
+        <li><strong>DB_PASSWORD</strong>: Database password</li>
+        <li><strong>DB_NAME</strong>: Database name</li>
+        <li><strong>JWT_SECRET</strong>: Secret key for JWT</li>
+        <li><strong>NODE_ENV</strong>: Environment (development/production)</li>
+        <li><strong>EMAIL_USER</strong>: Email for sending notifications</li>
+        <li><strong>EMAIL_PASS</strong>: Email password</li>
+    </ul>
+</body>
+</html>

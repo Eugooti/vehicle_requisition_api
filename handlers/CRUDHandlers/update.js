@@ -15,7 +15,6 @@ const update = async (model,req,res) => {
       return successTransaction(res,"updated",updatedRows[0])
 
   }catch(err){
-      console.log(err)
       return handleErrors(res,err);
   }
 }
