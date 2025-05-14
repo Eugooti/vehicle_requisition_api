@@ -3,6 +3,7 @@ const requisitionsModel = require('../../models/Trip.model');
 const departmentModel = require('../../models/departments.model');
 const vehicleModel = require('../../models/vehicle.model');
 const signatures = require('../../models/signatures.model');
+const feedbackModel = require('../../models/feedback.model')
 const {handleErrors, successTransaction} = require("../../utils/errorHandlers");
 
 const getDepartmentReport =async (req,res) => {
@@ -14,6 +15,7 @@ const getDepartmentReport =async (req,res) => {
          const department = await departmentModel.findByPk(req.params.id)
          const vehicleList = await vehicleModel.findAll({raw:true})
          const signatureList = await signatures.findAll({raw:true})
+         const feedbackList = await feedbackModel.findAll({raw:true})
 
       const findItem = (id,items)=>{
           return items?.find(item=>item.id === id);
@@ -21,6 +23,9 @@ const getDepartmentReport =async (req,res) => {
 
       const findSignature = (id,items) => {
         return items?.find(item=>item.userId === id);
+      }
+      const findFeedback = (id,items) => {
+        return items?.find(item=>item.tripId === id);
       }
 
 
@@ -49,6 +54,7 @@ const getDepartmentReport =async (req,res) => {
           returnDate:item?.returnDate,
           notes:item.allocatorNote,
           allocationMode:item.allocationMode,
+          feedback:findFeedback(item.id,feedbackList),
       }))
       return successTransaction(res,'read',formattedData)
 
@@ -63,6 +69,8 @@ const getAllReport =async (req,res) => {
       const departmentList = await departmentModel.findAll({ raw: true });
       const vehicleList = await vehicleModel.findAll({ raw: true });
       const signatureList = await signatures.findAll({raw:true})
+      const feedbackList = await feedbackModel.findAll({raw:true})
+
 
 
       const findItem = (id,list)=>{
@@ -71,6 +79,10 @@ const getAllReport =async (req,res) => {
 
       const findSignature = (id,items) => {
           return items?.find(item=>item.userId === id);
+      }
+
+      const findFeedback = (id,items) => {
+          return items?.find(item=>item.tripId === id);
       }
 
       const formattedData = tripsList.filter(item=>item.endTime).map(item => ({
@@ -97,6 +109,7 @@ const getAllReport =async (req,res) => {
           returnDate:item?.returnDate,
           notes:item.allocatorNote,
           allocationMode:item.allocationMode,
+          feedback:findFeedback(item.id,feedbackList)?findFeedback(item.id,feedbackList):null,
       }))
 
       return successTransaction(res,'read',formattedData)

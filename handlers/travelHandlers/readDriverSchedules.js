@@ -11,17 +11,14 @@ const ReadDriverSchedules = async (req,res) => {
         const today = new Date().toISOString().split('T')[0]; // Format: 'YYYY-MM-DD'
 
         const driverId = req.params.id;
-        console.log("Driver ID:", driverId);
 
         if (!driverId) {
-            console.log("Driver ID is missing");
             return res.status(400).json({
                 success: false,
                 message: "Driver ID is required"
             });
         }
 
-        console.log("Searching for trips with date range:", today);
 
         const trips = await tripsModel.findAll({
             where:{
@@ -31,8 +28,6 @@ const ReadDriverSchedules = async (req,res) => {
             },
             raw: true
         });
-
-        console.log("Found trips:", trips.length);
 
         const usersList = await usersModel.findAll({raw: true});
         const departmentList = await departmentModel.findAll({raw: true});
@@ -54,12 +49,10 @@ const ReadDriverSchedules = async (req,res) => {
                 const [hour, minute] = time.split(':');
                 return `${hour}:${minute}`;
             } catch (error) {
-                console.log("Error formatting time:", error);
                 return time; // Return original time if there's an error
             }
         }
 
-        console.log("Formatting trip data");
 
         const formatData = trips.map((trip) => {
             const user = findItem(trip.userId, usersList);

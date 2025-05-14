@@ -27,7 +27,7 @@ const MailHandler = async (to, subject, body) => {
             html: `
                 <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
                     <h2 style="color: #2c3e50;">Hello,</h2>
-                    <p>I hope this message finds you well. ${body}</p>
+                    <p>${body}</p>
                     <p style="margin-top: 20px;">Best regards,</p>
                     <p><strong>Support Team</strong></p>
                 </div>
