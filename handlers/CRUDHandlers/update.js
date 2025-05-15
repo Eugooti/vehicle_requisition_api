@@ -1,4 +1,4 @@
-const {handleErrors, successTransaction, itemNotFound} = require("../../../utils/errorHandlers");
+const {handleErrors, successTransaction, itemNotFound} = require("../../utils/errorHandlers");
 const update = async (model,req,res) => {
   try {
       const {id} = req.params;

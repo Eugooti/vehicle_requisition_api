@@ -20,7 +20,7 @@ exports.handleErrors = (res, error) => {
         return res.status(409).json({
             success: false,
             result: null,
-            message: 'Unique constraint error: Duplicate entry found.',
+            message: 'Record already exists.',
             error: error.errors.map(err => err.message), // Extract specific constraint messages
         });
     } else if (error.name === 'SequelizeForeignKeyConstraintError') {
@@ -55,10 +55,10 @@ exports.itemNotFound = (res,item="Record")=>{
     })
 }
 
-exports.successTransaction = (res,transaction,result=null)=>{
+exports.successTransaction = (res,transaction=null,result=null,message=null)=>{
     return res.status(200).json({
         success:true,
-        message:`Record ${transaction} successfully.`,
+        message:message?message:`Record ${transaction} successfully.`,
         result
     })
 }
@@ -72,5 +72,38 @@ exports.notFound = (req, res, next) => {
     res.status(404).json({
         success: false,
         message: "Url doesn't exist ",
+    });
+};
+
+/*
+  Production Error Handler
+
+  No stacktraces are leaked to admin
+*/
+exports.productionErrors = (error, req, res, next) => {
+    res.status(500).json({
+        success: false,
+        message: error.message,
+        error: error,
+    });
+};
+
+/*
+  Development Error Handler
+
+  In development we show good error messages so if we hit a syntax error or any other previously un-handled error, we can show good info on what happened
+*/
+exports.developmentErrors = (error, req, res, next) => {
+    error.stack = error.stack || '';
+    const errorDetails = {
+        message: error.message,
+        status: error.status,
+        stackHighlighted: error.stack.replace(/[a-z_-\d]+.js:\d+:\d+/gi, '<mark>$&</mark>'),
+    };
+
+    res.status(500).json({
+        success: false,
+        message: error.message,
+        error: error,
     });
 };
