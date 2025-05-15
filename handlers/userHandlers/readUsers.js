@@ -59,4 +59,24 @@ const readUsersByRole = async (req,res) => {
   }
 }
 
-module.exports = {ReadUsers,readUsersByRole}
+
+const readUsersForSelection = async (req,res) => {
+    try {
+
+        const userList = await userModel.findAll();
+
+        const formatList = userList.map(item=>({
+            value:item.id,
+            label:`${item.firstName} ${item.lastName}`
+        }))
+
+        return successTransaction(res,null,formatList)
+
+
+    }catch (err) {
+        return handleErrors(res,err)
+    }
+
+}
+
+module.exports = {ReadUsers,readUsersByRole,readUsersForSelection}

@@ -5,11 +5,11 @@
     const router = express.Router();
 
     router.route('/trip/create').post(catchErrors(tripsController.createTravel))
-    router.route('/trip/update/:id').put(catchErrors(tripsController.update))
+    router.route('/trip/update/:id').put(catchErrors(tripsController.updateTrip))
     router.route('/trip/read').get(catchErrors(tripsController.readAllRequisition))
     router.route('/trip/read/:id').get(catchErrors(tripsController.readById))
     router.route('/trip/read/department/:id').get(catchErrors(tripsController.readRequisitionsByDepartment))
-    router.route('/trip/read/user/:id').get(catchErrors(tripsController.readByUserId))
+    router.route('/trip/read/user/:id').get(catchErrors(tripsController.readTripsByUser))
     router.route('/trip/approve/:id').put(catchErrors(tripsController.approveTravel))
     router.route('/trip/assign/:id').put(catchErrors(tripsController.Allocation))
     router.route('/trip/ownMeans/:id').put(catchErrors(tripsController.ownMeans))

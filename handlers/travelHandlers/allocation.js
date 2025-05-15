@@ -77,14 +77,11 @@ const allocation = async (req, res) => {
                        onmouseout="this.style.backgroundColor='#10b981'; this.style.transform='none'">
                       Call Driver
                     </a>
-                    <p style="color: #6b7280; font-size: 14px; margin-top: 15px;">
-                      Takes less than 2 minutes - your opinion matters!
-                    </p>
                 </div>
             </div>
             
             <p style="font-size: 14px; color: #6c757d;">
-                <i>Theis assignment is valid until ${userTrips.pickupDate}</i>
+                <i>Theis assignment is valid until ${userTrips.returnDate}</i>
             </p>
         </div>
         `

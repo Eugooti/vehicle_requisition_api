@@ -6,6 +6,7 @@ const trips = require("./Trip.model");
 const schedule = require('./schedule.model');
 const signature = require("./signatures.model");
 const feedback = require("./feedback.model");
+const coTravellers = require('./coTravellers.model')
 
 
 const syncModel = async () => {
@@ -18,6 +19,7 @@ const syncModel = async () => {
       await schedule.sync();
       await signature.sync();
       await feedback.sync();
+      await coTravellers.sync()
 
       console.log("Model sync successfully");
       return true

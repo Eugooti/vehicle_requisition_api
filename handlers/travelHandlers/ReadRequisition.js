@@ -1,16 +1,28 @@
 const usersModel = require('../../models/user.model');
 const requisitionsModel = require('../../models/Trip.model');
 const departmentModel = require('../../models/departments.model');
+const coTravellersModel = require('../../models/coTravellers.model');
 const {handleErrors, successTransaction} = require("../../utils/errorHandlers");
 
 const readRequisitionsByDepartment= async (req,res)=>{
     try {
         const usersList = await usersModel.findAll()
         const tripsList = await requisitionsModel.findAll({where:{departmentId:req.params.id}})
+        const coTravellersList = await coTravellersModel.findAll()
 
         const findUser = (id)=>{
             return usersList.find(item=>item.id === id);
         }
+
+        function getCoTravellersNames(tripId) {
+            return coTravellersList
+                .filter(item => item.tripId === tripId)
+                .map(item => {
+                    const user = findUser(item.userId);
+                    return `${user.firstName} ${user.lastName}`;
+                });
+        }
+
         const formatTrips = tripsList.map((trip,index) => ({
             fullName:`${findUser(trip.userId).firstName} ${findUser(trip.userId).lastName}`,
             date:trip.pickupDate,
@@ -19,7 +31,8 @@ const readRequisitionsByDepartment= async (req,res)=>{
             passengerNumber:trip.travellersCount,
             purpose:trip.purpose,
             id:trip.id,
-            approvalStatus:trip.approvalStatus
+            approvalStatus:trip.approvalStatus,
+            coTravellers:getCoTravellersNames(trip.id)
         }))
 
         return successTransaction(res,"read",formatTrips)
@@ -34,6 +47,8 @@ const readAllRequisition = async (req,res) => {
       const usersList = await usersModel.findAll()
       const tripsList = await requisitionsModel.findAll()
       const departmentList = await departmentModel.findAll()
+      const coTravellersList = await coTravellersModel.findAll()
+
 
       const findItem = (id,list)=>{
           return list.find(item=>item.id === id);
@@ -43,6 +58,19 @@ const readAllRequisition = async (req,res) => {
           const [hour, minute] = time.split(':');
 
           return `${hour}:${minute}`;
+      }
+
+      const findUser = (id)=>{
+          return usersList.find(item=>item.id === id);
+      }
+
+      function getCoTravellersNames(tripId) {
+          return coTravellersList
+              .filter(item => item.tripId === tripId)
+              .map(item => {
+                  const user = findUser(item.userId);
+                  return `${user.firstName} ${user.lastName}`;
+              });
       }
 
       const formatData = tripsList.map((trip)=>({
@@ -67,6 +95,7 @@ const readAllRequisition = async (req,res) => {
           driverId:trip.driverId,
           date:trip.pickupDate,
           time:formatTime(trip.pickupTime),
+          coTravellers:getCoTravellersNames(trip.id)
       }))
 
       return successTransaction(res,"read",formatData)
@@ -76,4 +105,41 @@ const readAllRequisition = async (req,res) => {
   }
 }
 
-module.exports = {readRequisitionsByDepartment,readAllRequisition};
+
+const readTripsByUser = async (req,res) => {
+    try {
+
+        const requisitions = await requisitionsModel.findAll({where:{userId:req.params.id},raw:true})
+        const coTravellersList = await coTravellersModel.findAll()
+        const usersList = await usersModel.findAll()
+
+
+
+        const findUser = (id)=>{
+            return usersList.find(item=>item.id === id);
+        }
+
+        function getCoTravellersNames(tripId) {
+            return coTravellersList
+                .filter(item => item.tripId === tripId)
+                .map(item => {
+                    const user = findUser(item.userId);
+                    return {label:`${user.firstName} ${user.lastName}`,value:user.id};
+                });
+        }
+
+        const result = requisitions.map(item=>({
+            ...item,
+            coTravellers:getCoTravellersNames(item.id)
+        }))
+
+
+        return successTransaction(res,null,result)
+
+    }catch (err) {
+        return handleErrors(res,err)
+    }
+
+}
+
+module.exports = {readRequisitionsByDepartment,readAllRequisition,readTripsByUser};

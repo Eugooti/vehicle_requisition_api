@@ -5,18 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bdc2914e-af0a-4c60-af94-768411d4cf41" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/handlers/travelHandlers/updateTrip.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/coTravellers.model.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/auth/JWT/jwtTokens.js" beforeDir="false" afterPath="$PROJECT_DIR$/config/auth/JWT/jwtTokens.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handlers/MailHandler/MailHandler.js" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/MailHandler/MailHandler.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handlers/authHandler/PasswordReset.js" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/authHandler/PasswordReset.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handlers/travelHandlers/ReadReports.js" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/travelHandlers/ReadReports.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handlers/travelHandlers/TripManagement.js" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/travelHandlers/TripManagement.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handlers/travelHandlers/ReadRequisition.js" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/travelHandlers/ReadRequisition.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/handlers/travelHandlers/allocation.js" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/travelHandlers/allocation.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handlers/travelHandlers/approve.js" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/travelHandlers/approve.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/handlers/travelHandlers/createRequisition.js" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/travelHandlers/createRequisition.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handlers/travelHandlers/readDriverSchedules.js" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/travelHandlers/readDriverSchedules.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/errorHandlers.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/errorHandlers.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handlers/travelHandlers/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/travelHandlers/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handlers/userHandlers/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/userHandlers/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handlers/userHandlers/readUsers.js" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/userHandlers/readUsers.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/Sync.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/Sync.model.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/admin.router.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/admin.router.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/trips.router.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/trips.router.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,36 +57,37 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Node.js.Roles.js.executor&quot;: &quot;Run&quot;,
-    &quot;Node.js.db.config.js.executor&quot;: &quot;Run&quot;,
-    &quot;Node.js.index.js.executor&quot;: &quot;Run&quot;,
-    &quot;Node.js.testss.js.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;production&quot;,
-    &quot;javascript.nodejs.core.library.configured.version&quot;: &quot;22.15.0&quot;,
-    &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;22.15.17&quot;,
-    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/640/WebstormProjects/vehicle_allocation_api/handlers/CRUD Handlers/withMail&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;npm.start.executor&quot;: &quot;Run&quot;,
-    &quot;npm.stat.executor&quot;: &quot;Run&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/Applications/PhpStorm.app/Contents/plugins/javascript-plugin/jsLanguageServicesImpl/external&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Node.js.Roles.js.executor": "Run",
+    "Node.js.db.config.js.executor": "Run",
+    "Node.js.index.js.executor": "Run",
+    "Node.js.testss.js.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "production",
+    "javascript.nodejs.core.library.configured.version": "22.15.0",
+    "javascript.nodejs.core.library.typings.version": "22.15.17",
+    "junie.onboarding.icon.badge.shown": "true",
+    "last_opened_file_path": "C:/Users/640/WebstormProjects/vehicle_allocation_api/handlers/CRUD Handlers/withMail",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "npm.start.executor": "Run",
+    "npm.stat.executor": "Run",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "ts.external.directory.path": "/Applications/PhpStorm.app/Contents/plugins/javascript-plugin/jsLanguageServicesImpl/external",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mysql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\640\WebstormProjects\vehicle_allocation_api\handlers\CRUD Handlers\withMail" />
@@ -156,7 +157,7 @@
       <workItem from="1747056527672" duration="2357000" />
       <workItem from="1747073918692" duration="236000" />
       <workItem from="1747116610421" duration="8752000" />
-      <workItem from="1747201911625" duration="4019000" />
+      <workItem from="1747201911625" duration="13818000" />
     </task>
     <servers />
   </component>

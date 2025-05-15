@@ -1,6 +1,6 @@
 const {CRUDMethods} = require("../CRUDHandlers");
 const {CreateUser} = require("./CreateUser");
-const {ReadUsers, readUsersByRole} = require("./readUsers");
+const {ReadUsers, readUsersByRole, readUsersForSelection} = require("./readUsers");
 const userHandlers =  (model) => {
   const methods = CRUDMethods(model)
 
@@ -13,7 +13,11 @@ const userHandlers =  (model) => {
     }
 
     methods.readUsersByRole = async (req, res) => {
-     return  await readUsersByRole(req,res)
+        await readUsersByRole(req,res)
+    }
+
+    methods.readUsersForSelection = async (req,res)=>{
+        await readUsersForSelection(req,res)
     }
 
     return methods

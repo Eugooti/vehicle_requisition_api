@@ -3,6 +3,7 @@ const tripsModel = require("../../models/Trip.model");
 const rolesModel = require("../../models/roles.model");
 const userModel = require("../../models/user.model");
 const departmentsModel = require("../../models/departments.model");
+const coTravellersModel = require("../../models/coTravellers.model");
 const {SMSHandler} = require("../MailHandler/SMSHandler");
 const {Op} = require("sequelize");
 const {MailHandler} = require("../MailHandler/MailHandler");
@@ -12,11 +13,17 @@ const CreateRequisition = async (req,res) => {
     const sequelize = tripsModel.sequelize;
     const transaction = await sequelize.transaction();
   try {
-      const {departmentId,userId}= req.body;
+      const {departmentId,userId,travellers}= req.body;
 
-     await tripsModel.create(req.body,{transaction});
+     const newRequisition = await tripsModel.create(req.body,{transaction});
      const department = await departmentsModel.findByPk(departmentId);
      const requester = await userModel.findByPk(userId);
+
+      const coTravellers = travellers?.length > 0
+          ? travellers.map(item => ({ userId: item, tripId: newRequisition.id }))
+          : [];
+
+      await coTravellersModel.bulkCreate(coTravellers,{transaction})
 
       const findManagerRoles = await rolesModel.findAll({
           where: {
@@ -79,7 +86,7 @@ const CreateRequisition = async (req,res) => {
       <!-- Action buttons -->
       <div style="text-align: center; margin: 30px 0 20px;">
         <div style="display: flex; justify-content: center; gap: 15px;">
-          <a href="http://localhost:5273/" 
+          <a href="http://localhost:5173/" 
              style="display: inline-block; background: #10b981; color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 15px; transition: all 0.2s;"
              onmouseover="this.style.backgroundColor='#059669'" 
              onmouseout="this.style.backgroundColor='#10b981'">

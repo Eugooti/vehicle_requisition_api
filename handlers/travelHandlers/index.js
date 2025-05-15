@@ -5,12 +5,13 @@ const {AvailableVehicles} = require("./AvailableVehicles");
 const {allocation} = require('./allocation')
 const {readSchedules} = require("./readSchedules");
 const {ownMeans} = require("./ownMeans");
-const {readRequisitionsByDepartment, readAllRequisition} = require("./ReadRequisition");
+const {readRequisitionsByDepartment, readAllRequisition, readTripsByUser} = require("./ReadRequisition");
 const {approve} = require("./approve");
 const {getDepartmentReport, getAllReport} = require("./ReadReports");
 const {CreateRequisition} = require("./createRequisition");
 const {ReadDriverSchedules} = require("./readDriverSchedules");
 const {TripManagement} = require("./TripManagement");
+const {updateTrip} = require("./updateTrip");
 
 
 const TravelHandlers = (model) => {
@@ -26,6 +27,10 @@ const TravelHandlers = (model) => {
 
     methods.readAllRequisition = async (req,res)=>{
         await readAllRequisition(req,res)
+    }
+
+    methods.readTripsByUser=async (req,res)=>{
+        await readTripsByUser(req,res)
     }
 
     methods.approveTravel = async (req,res)=>{
@@ -72,6 +77,10 @@ const TravelHandlers = (model) => {
 
     methods.endTrip = async (req,res)=>{
         await TripManagement(req,res)
+    }
+
+    methods.updateTrip=async (req,res)=>{
+        await updateTrip(req,res)
     }
 
     return methods;
