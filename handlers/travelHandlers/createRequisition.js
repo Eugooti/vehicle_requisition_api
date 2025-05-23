@@ -1,4 +1,4 @@
-const {handleErrors, successTransaction} = require("../../utils/errorHandlers");
+const {handleErrors, successTransaction, getClientInfo, sanitizeEntityData} = require("../../utils/errorHandlers");
 const tripsModel = require("../../models/Trip.model");
 const rolesModel = require("../../models/roles.model");
 const userModel = require("../../models/user.model");
@@ -7,11 +7,35 @@ const coTravellersModel = require("../../models/coTravellers.model");
 const {SMSHandler} = require("../MailHandler/SMSHandler");
 const {Op} = require("sequelize");
 const {MailHandler} = require("../MailHandler/MailHandler");
+const logs = require('../../models/logs.model');
 
 
 const CreateRequisition = async (req,res) => {
     const sequelize = tripsModel.sequelize;
     const transaction = await sequelize.transaction();
+
+    const clientInfo = getClientInfo(req); // Get detailed client information
+    const baseLog = {
+        userId: req.user?.id || null,
+        loginEmail: req.user?.email || null,
+        action: `Create Travel Requisition`,
+        entity: 'Trip',
+        ipAddress: clientInfo.ipAddress,
+        timestamp: new Date(),
+        metadata: {
+            client: {
+                userAgent: clientInfo.userAgent,
+                protocol: clientInfo.protocol,
+                endpoint: req.originalUrl
+            },
+            request: {
+                method: req.method,
+                params: req.params,
+                query: req.query
+            }
+        }
+    };
+
   try {
       const {departmentId,userId,travellers}= req.body;
 
@@ -111,11 +135,66 @@ const CreateRequisition = async (req,res) => {
           throw new Error("Error sending mail")
       }
 
+      // Prepare success log metadata
+      const successMetadata = {
+          ...baseLog.metadata,
+          entityData: sanitizeEntityData(req.body),
+          system: {
+              environment: process.env.NODE_ENV,
+              nodeVersion: process.version
+          },
+          travelDetails: {
+              requisitionId: newRequisition.id,
+              departmentId: departmentId,
+              departmentName: department?.name || 'Unknown',
+              coTravellersCount: travellers?.length || 0
+          }
+      };
+
+      // Async log creation (fire-and-forget)
+      logs.create({
+          ...baseLog,
+          status: "Success",
+          entityId: newRequisition.id,
+          description: `Successfully created travel requisition`,
+          metadata: successMetadata
+      }).catch(logErr => console.error('Logging failed', logErr));
+
       await transaction.commit();
       return successTransaction(res, 'created');
 
 
   }catch(err){
+      // Prepare error metadata
+      const errorMetadata = {
+          ...baseLog.metadata,
+          error: {
+              name: err.name,
+              message: err.message,
+              code: err.code || 'REQUISITION_CREATION_ERROR',
+              stack: process.env.NODE_ENV === 'development' ? err.stack : undefined
+          },
+          attemptedData: sanitizeEntityData(req.body)
+      };
+
+      // Ensure the original error isn't lost if logging fails
+      try {
+          await logs.create({
+              ...baseLog,
+              status: "Failed",
+              description: `Failed to create travel requisition`,
+              metadata: errorMetadata
+          });
+      } catch (logErr) {
+          console.error('Failed to write error log', logErr);
+          // Fallback to basic error logging
+          console.error('Original error:', {
+              error: err.message,
+              route: req.originalUrl,
+              body: sanitizeEntityData(req.body)
+          });
+      }
+
       await transaction.rollback()
       return handleErrors(res, err);
   }

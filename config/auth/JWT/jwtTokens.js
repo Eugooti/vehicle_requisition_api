@@ -5,7 +5,7 @@ class JwtTokens {
 
     generateAccessToken(user) {
         const payload = {
-            id: user.id,
+            id: user.userId,
             email: user.email,
             roles:user.roles
         };
@@ -17,7 +17,7 @@ class JwtTokens {
 
     generateRefreshToken(user) {
         const payload = {
-            id: user.id,
+            id: user.userId,
             email: user.email,
             roles:user.roles
         };

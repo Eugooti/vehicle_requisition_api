@@ -8,6 +8,40 @@ exports.catchErrors = (fn) => {
     };
 };
 
+exports.getIpAddress = (req) => {
+    return req.headers['x-forwarded-for']?.split(',')[0].trim() ||
+        req.headers['x-real-ip'] ||
+        req.connection?.remoteAddress ||
+        req.socket?.remoteAddress ||
+        req.connection?.socket?.remoteAddress ||
+        null;
+};
+
+exports.sanitizeEntityData=(data)=> {
+    if (!data) return null;
+    if (Array.isArray(data)) return data.map(sanitizeEntityData);
+
+    const sensitiveFields = ['password', 'token', 'creditCard', 'ssn', 'cvv'];
+    const sanitized = {...data};
+
+    sensitiveFields.forEach(field => {
+        if (sanitized[field] !== undefined) {
+            sanitized[field] = '**REDACTED**';
+        }
+    });
+
+    return sanitized;
+
+}
+
+
+// Enhanced IP address detection
+exports.getClientInfo = (req) => ({
+    ipAddress: req.headers['x-forwarded-for']?.split(',')[0].trim() || req.connection.remoteAddress,
+    userAgent: req.headers['user-agent'],
+    protocol: req.protocol
+});
+
 exports.handleErrors = (res, error) => {
     if (error.name === 'SequelizeValidationError') {
         return res.status(400).json({

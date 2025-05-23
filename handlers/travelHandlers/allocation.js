@@ -1,16 +1,41 @@
-const { handleErrors, itemNotFound, successTransaction } = require('../../utils/errorHandlers');
+const { handleErrors, itemNotFound, successTransaction, getClientInfo, sanitizeEntityData } = require('../../utils/errorHandlers');
 const tripModel = require("../../models/Trip.model");
 const scheduleModel = require("../../models/schedule.model");
 const Users = require('../../models/user.model');
 const vehicleModel = require("../../models/vehicle.model");
 const { SMSHandler } = require('../MailHandler/SMSHandler');
 const {MailHandler} = require("../MailHandler/MailHandler");
+const logs = require('../../models/logs.model');
 
 const allocation = async (req, res) => {
     const sequelize = tripModel.sequelize;
     const transaction = await sequelize.transaction();
+
+    const id = req.params.id;
+    const clientInfo = getClientInfo(req);
+    const baseLog = {
+        userId: req.user?.id || null,
+        loginEmail: req.user?.email || null,
+        action: `Allocate Vehicle`,
+        entity: 'Trip',
+        entityId: id,
+        ipAddress: clientInfo.ipAddress,
+        timestamp: new Date(),
+        metadata: {
+            client: {
+                userAgent: clientInfo.userAgent,
+                protocol: clientInfo.protocol,
+                endpoint: req.originalUrl
+            },
+            request: {
+                method: req.method,
+                params: req.params,
+                query: req.query
+            }
+        }
+    };
+
     try {
-        const id = req.params.id;
         const { allocatorId, driverId, vehicleId, allocatorNote, pickupDate, pickupTime, returnDate, returnTime, allocationMode } = req.body;
 
         const tripData = pickupTime
@@ -58,18 +83,18 @@ const allocation = async (req, res) => {
             `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
             <h2 style="color: #2c3e50;">Your Vehicle Requisition Details</h2>
-            
+
             <div style="background: #f8f9fa; padding: 15px; border-radius: 5px; margin: 15px 0;">
                 <h3 style="margin-top: 0;">🛻 Vehicle Information</h3>
                 <p><strong>Make/Model:</strong> ${vehicle.make || 'Not specified'}</p>
                 <p><strong>License Plate:</strong> ${vehicle.numberPlate || 'Pending assignment'}</p>
             </div>
-            
+
             <div style="background: #f8f9fa; padding: 15px; border-radius: 5px; margin: 15px 0;">
                 <h3 style="margin-top: 0;">👨‍💼 Driver Details</h3>
                 <p><strong>Name:</strong> ${driver.firstName} ${driver.lastName}</p>
                 <p><strong>Contact:</strong> <a>${driver.phone}</a></p>
-                
+
                 <div style="text-align: center; margin: 30px 0;">
                     <a href="tel:${driver.phone}"
                        style="display: inline-block; background: #10b981; color: white; padding: 14px 28px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 16px; transition: all 0.2s;"
@@ -79,7 +104,7 @@ const allocation = async (req, res) => {
                     </a>
                 </div>
             </div>
-            
+
             <p style="font-size: 14px; color: #6c757d;">
                 <i>Theis assignment is valid until ${userTrips.returnDate}</i>
             </p>
