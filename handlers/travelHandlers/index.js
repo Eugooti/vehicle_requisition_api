@@ -5,7 +5,7 @@ const {AvailableVehicles} = require("./AvailableVehicles");
 const {allocation} = require('./allocation')
 const {readSchedules} = require("./readSchedules");
 const {ownMeans} = require("./ownMeans");
-const {readRequisitionsByDepartment, readAllRequisition, readTripsByUser} = require("./ReadRequisition");
+const {readRequisitionsByDepartment, readAllRequisition, readTripsByUser, readApprovalRequests, readAllocationRequests} = require("./ReadRequisition");
 const {approve} = require("./approve");
 const {getDepartmentReport, getAllReport} = require("./ReadReports");
 const {CreateRequisition} = require("./createRequisition");
@@ -81,6 +81,14 @@ const TravelHandlers = (model) => {
 
     methods.updateTrip=async (req,res)=>{
         await updateTrip(req,res)
+    }
+
+    methods.approvalList = async (req,res)=>{
+        await readApprovalRequests(req,res)
+    }
+
+    methods.allocationList = async (req,res)=>{
+        await readAllocationRequests(req,res)
     }
 
     return methods;

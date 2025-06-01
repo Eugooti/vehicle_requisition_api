@@ -14,6 +14,8 @@ const CreateRequisition = async (req,res) => {
     const sequelize = tripsModel.sequelize;
     const transaction = await sequelize.transaction();
 
+    console.log(req.user)
+
     const clientInfo = getClientInfo(req); // Get detailed client information
     const baseLog = {
         userId: req.user?.id || null,

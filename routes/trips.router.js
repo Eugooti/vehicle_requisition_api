@@ -6,9 +6,11 @@
 
     router.route('/trip/create').post(catchErrors(tripsController.createTravel))
     router.route('/trip/update/:id').put(catchErrors(tripsController.updateTrip))
+    router.route('/trip/read/allocations').get(catchErrors(tripsController.allocationList))
     router.route('/trip/read').get(catchErrors(tripsController.readAllRequisition))
     router.route('/trip/read/:id').get(catchErrors(tripsController.readById))
     router.route('/trip/read/department/:id').get(catchErrors(tripsController.readRequisitionsByDepartment))
+    router.route('/trip/read/approvalRequest/:id').get(catchErrors(tripsController.approvalList))
     router.route('/trip/read/user/:id').get(catchErrors(tripsController.readTripsByUser))
     router.route('/trip/approve/:id').put(catchErrors(tripsController.approveTravel))
     router.route('/trip/assign/:id').put(catchErrors(tripsController.Allocation))
