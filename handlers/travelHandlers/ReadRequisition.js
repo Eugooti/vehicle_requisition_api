@@ -153,10 +153,8 @@ const readAllocationRequests = async (req,res) => {
               pickupDate: { [Op.lte]: today },
               returnDate: { [Op.gte]: today },
               approvalStatus: "Approved",
-              // allocationMode: null,
+              allocationMode: null,
           }})
-
-      console.log(tripsList)
 
       const departmentList = await departmentModel.findAll()
       const coTravellersList = await coTravellersModel.findAll()

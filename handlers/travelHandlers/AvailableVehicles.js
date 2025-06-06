@@ -1,12 +1,13 @@
 const { handleErrors } = require("../../utils/errorHandlers");
 const scheduleModel = require('../../models/schedule.model');
 const vehiclesModel = require('../../models/vehicle.model');
+const {where} = require("sequelize");
 
 const AvailableVehicles = async (req, res) => {
     try {
         const { startDay, endDay } = req.body;
         const schedules = await scheduleModel.findAll();
-        const vehicles = await vehiclesModel.findAll();
+        const vehicles = await vehiclesModel.findAll({where:{availability:'Available'}});
 
         const reqStart = new Date(startDay);
         const reqEnd = new Date(endDay);
