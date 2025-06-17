@@ -20,6 +20,7 @@
     router.route('/trip/recall/:id').delete(catchErrors(tripsController.delete))
     router.route('/trip/deallocate/:id').put(catchErrors(tripsController.deallocate))
     router.route('/vehicle/available').put(catchErrors(tripsController.availableVehicles))
+    router.route('/driver/trips/:id').get(catchErrors(tripsController.driverCompleteTrips))
 
 //reports
 

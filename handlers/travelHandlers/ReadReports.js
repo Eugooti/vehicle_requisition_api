@@ -115,7 +115,6 @@ const getAllReport =async (req,res) => {
       return successTransaction(res,'read',formattedData)
 
   }catch(err){
-      console.log(err)
       return handleErrors(res,err)
   }
 }

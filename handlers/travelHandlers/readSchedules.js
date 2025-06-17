@@ -91,7 +91,6 @@ const readSchedules = async (req, res) => {
         return successTransaction(res, 'retrieved', formattedData);
 
     } catch (err) {
-        console.log(err)
         return handleErrors(res, err);
     }
 };

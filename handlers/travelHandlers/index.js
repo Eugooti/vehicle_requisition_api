@@ -12,6 +12,7 @@ const {CreateRequisition} = require("./createRequisition");
 const {ReadDriverSchedules} = require("./readDriverSchedules");
 const {TripManagement} = require("./TripManagement");
 const {updateTrip} = require("./updateTrip");
+const {readDriverCompleteTrips} = require("./readDriverCompleteTrips");
 
 
 const TravelHandlers = (model) => {
@@ -89,6 +90,10 @@ const TravelHandlers = (model) => {
 
     methods.allocationList = async (req,res)=>{
         await readAllocationRequests(req,res)
+    }
+
+    methods.driverCompleteTrips = async (req,res)=>{
+        await readDriverCompleteTrips(req,res)
     }
 
     return methods;

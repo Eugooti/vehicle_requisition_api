@@ -5,15 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bdc2914e-af0a-4c60-af94-768411d4cf41" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handlers/CRUDHandlers/update.js" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/CRUDHandlers/update.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handlers/reportsController/driverReports.js" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/reportsController/driverReports.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handlers/travelHandlers/ReadRequisition.js" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/travelHandlers/ReadRequisition.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handlers/travelHandlers/allocation.js" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/travelHandlers/allocation.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handlers/travelHandlers/approve.js" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/travelHandlers/approve.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handlers/travelHandlers/ownMeans.js" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/travelHandlers/ownMeans.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/Sync.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/Sync.model.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handlers/travelHandlers/createRequisition.js" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/travelHandlers/createRequisition.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,7 +23,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="requisition" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -51,11 +44,23 @@
                 <list>
                   <RecentBranch>
                     <option name="branchName" value="logging" />
-                    <option name="lastUsedInstant" value="1749227632" />
+                    <option name="lastUsedInstant" value="1748004324" />
                   </RecentBranch>
                   <RecentBranch>
-                    <option name="branchName" value="main" />
-                    <option name="lastUsedInstant" value="1749227631" />
+                    <option name="branchName" value="production" />
+                    <option name="lastUsedInstant" value="1744579552" />
+                  </RecentBranch>
+                  <RecentBranch>
+                    <option name="branchName" value="signature" />
+                    <option name="lastUsedInstant" value="1744282932" />
+                  </RecentBranch>
+                  <RecentBranch>
+                    <option name="branchName" value="v1" />
+                    <option name="lastUsedInstant" value="1743054400" />
+                  </RecentBranch>
+                  <RecentBranch>
+                    <option name="branchName" value="mail-integration" />
+                    <option name="lastUsedInstant" value="1739962151" />
                   </RecentBranch>
                 </list>
               </option>
@@ -69,8 +74,9 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/Eugooti/vehicle_requisition_api.git&quot;,
-    &quot;accountId&quot;: &quot;618d02d4-399b-45ca-9930-34d54744a9dc&quot;
-  }
+    &quot;accountId&quot;: &quot;29dbe420-2199-4238-9e1c-6a7a91220c69&quot;
+  },
+  &quot;editorReviewEnabled&quot;: false
 }</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 6
@@ -82,26 +88,40 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;Jest.Auth Handlers.Login.executor&quot;: &quot;Run&quot;,
+    &quot;Jest.Auth Handlers.Password Reset.executor&quot;: &quot;Run&quot;,
+    &quot;Jest.Auth Handlers.Refresh Token.executor&quot;: &quot;Run&quot;,
+    &quot;Jest.Auth Handlers.Update Password.executor&quot;: &quot;Run&quot;,
+    &quot;Jest.Auth Handlers.executor&quot;: &quot;Run&quot;,
+    &quot;Jest.CRUD Operations.executor&quot;: &quot;Run&quot;,
+    &quot;Jest.Travel Requisition Functions.executor&quot;: &quot;Run&quot;,
+    &quot;Jest.User Functions.executor&quot;: &quot;Run&quot;,
+    &quot;Node.js.MailHandler.js.executor&quot;: &quot;Run&quot;,
     &quot;Node.js.Roles.js.executor&quot;: &quot;Run&quot;,
+    &quot;Node.js.SMSHandler.js.executor&quot;: &quot;Run&quot;,
     &quot;Node.js.db.config.js.executor&quot;: &quot;Run&quot;,
     &quot;Node.js.index.js.executor&quot;: &quot;Run&quot;,
     &quot;Node.js.testss.js.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;logging&quot;,
-    &quot;javascript.nodejs.core.library.configured.version&quot;: &quot;22.16.0&quot;,
-    &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;22.15.30&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;javascript.nodejs.core.library.configured.version&quot;: &quot;22.11.0&quot;,
+    &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;22.14.1&quot;,
     &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/640/WebstormProjects/vehicle_allocation_api/handlers/CRUD Handlers/withMail&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/640/WebstormProjects/vehicle_allocation_api&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs.jest.jest_package&quot;: &quot;C:/Users/640/WebstormProjects/vehicle_allocation_api/node_modules/jest&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;npm.start.executor&quot;: &quot;Run&quot;,
     &quot;npm.stat.executor&quot;: &quot;Run&quot;,
+    &quot;npm.test (1).executor&quot;: &quot;Run&quot;,
+    &quot;npm.test.executor&quot;: &quot;Run&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\WebStorm 2025.1.2\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\WebStorm 2024.3.5\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
@@ -116,15 +136,46 @@
       <recent name="C:\Users\640\WebstormProjects\vehicle_allocation_api\config\auth" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\640\WebstormProjects\vehicle_allocation_api\handlers\CRUD Handlers" />
       <recent name="C:\Users\640\WebstormProjects\vehicle_allocation_api\handlers\CRUD Handlers\general" />
       <recent name="C:\Users\640\WebstormProjects\vehicle_allocation_api\config\auth\JWT" />
     </key>
   </component>
   <component name="RunManager" selected="npm.start">
-    <configuration name="Roles.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/config/auth/RoleBasedAccess/Roles.js" working-dir="$PROJECT_DIR$/config/auth/RoleBasedAccess">
+    <configuration name="CRUD Operations" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <jest-package value="$PROJECT_DIR$/node_modules/jest" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="SUITE" />
+      <test-file value="$PROJECT_DIR$/__test__/CRUD.test.js" />
+      <test-names>
+        <test-name value="CRUD Operations" />
+      </test-names>
       <method v="2" />
     </configuration>
-    <configuration name="testss.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/utils/testss.js" working-dir="$PROJECT_DIR$/utils">
+    <configuration name="Travel Requisition Functions" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <jest-package value="$PROJECT_DIR$/node_modules/jest" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="SUITE" />
+      <test-file value="$PROJECT_DIR$/__test__/requisitions.test.js" />
+      <test-names>
+        <test-name value="Travel Requisition Functions" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="User Functions" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <jest-package value="$PROJECT_DIR$/node_modules/jest" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="SUITE" />
+      <test-file value="$PROJECT_DIR$/__test__/user.test.js" />
+      <test-names>
+        <test-name value="User Functions" />
+      </test-names>
       <method v="2" />
     </configuration>
     <configuration name="start" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
@@ -137,18 +188,45 @@
       <envs />
       <method v="2" />
     </configuration>
+    <configuration name="test (1)" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="test" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="test" type="js.build_tools.npm" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="test" />
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Jest.CRUD Operations" />
+      <item itemvalue="Jest.Travel Requisition Functions" />
+      <item itemvalue="Jest.User Functions" />
+      <item itemvalue="npm.test" />
+      <item itemvalue="npm.start" />
+      <item itemvalue="npm.test (1)" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="npm.start" />
-        <item itemvalue="Node.js.Roles.js" />
-        <item itemvalue="Node.js.testss.js" />
+        <item itemvalue="npm.test (1)" />
+        <item itemvalue="Jest.User Functions" />
+        <item itemvalue="Jest.Travel Requisition Functions" />
+        <item itemvalue="Jest.CRUD Operations" />
       </list>
     </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-b26f3e71634d-JavaScript-WS-251.26094.131" />
+        <option value="bundled-js-predefined-d6986cc7102b-6a121458b545-JavaScript-WS-251.25410.117" />
       </set>
     </attachedChunks>
   </component>
@@ -175,24 +253,131 @@
       <workItem from="1737090545545" duration="16666000" />
       <workItem from="1737114566213" duration="59000" />
       <workItem from="1737114664733" duration="800000" />
-      <workItem from="1749307863267" duration="1604000" />
-      <workItem from="1749450050512" duration="19000" />
-      <workItem from="1749452772363" duration="6000" />
-      <workItem from="1749627309409" duration="3894000" />
-      <workItem from="1749703138731" duration="11000" />
-      <workItem from="1749717249883" duration="1947000" />
-      <workItem from="1749803057975" duration="861000" />
-      <workItem from="1749901142628" duration="3441000" />
-      <workItem from="1749938354884" duration="17000" />
-      <workItem from="1749938613453" duration="16000" />
-      <workItem from="1749940117549" duration="15000" />
-      <workItem from="1749940443299" duration="144000" />
-      <workItem from="1749982927799" duration="1972000" />
-      <workItem from="1749995710173" duration="1537000" />
-      <workItem from="1750052691636" duration="1415000" />
-      <workItem from="1750071414093" duration="4522000" />
-      <workItem from="1750139473031" duration="3559000" />
-      <workItem from="1750182422781" duration="735000" />
+      <workItem from="1737118449728" duration="628000" />
+      <workItem from="1737199929018" duration="4058000" />
+      <workItem from="1737354493217" duration="5968000" />
+      <workItem from="1737371258893" duration="4833000" />
+      <workItem from="1737436878869" duration="1179000" />
+      <workItem from="1737464158051" duration="1977000" />
+      <workItem from="1737524540390" duration="707000" />
+      <workItem from="1737608598723" duration="15274000" />
+      <workItem from="1737643271655" duration="161000" />
+      <workItem from="1737643737203" duration="1078000" />
+      <workItem from="1737697146927" duration="3313000" />
+      <workItem from="1737716771091" duration="20577000" />
+      <workItem from="1737801091042" duration="11446000" />
+      <workItem from="1737958326081" duration="2609000" />
+      <workItem from="1737968936610" duration="317000" />
+      <workItem from="1737969461438" duration="1060000" />
+      <workItem from="1737978571818" duration="4584000" />
+      <workItem from="1738058881500" duration="12819000" />
+      <workItem from="1738214312092" duration="1882000" />
+      <workItem from="1738300214960" duration="4250000" />
+      <workItem from="1738512635001" duration="6434000" />
+      <workItem from="1738566087258" duration="85000" />
+      <workItem from="1738566239440" duration="6484000" />
+      <workItem from="1738659251625" duration="3508000" />
+      <workItem from="1738734079923" duration="641000" />
+      <workItem from="1738734776447" duration="13981000" />
+      <workItem from="1738778099649" duration="3739000" />
+      <workItem from="1738835285778" duration="272000" />
+      <workItem from="1738836409379" duration="4644000" />
+      <workItem from="1738905649757" duration="1251000" />
+      <workItem from="1738908389659" duration="1763000" />
+      <workItem from="1738915969990" duration="1859000" />
+      <workItem from="1739044825435" duration="1515000" />
+      <workItem from="1739097081963" duration="40000" />
+      <workItem from="1739097163278" duration="1827000" />
+      <workItem from="1739166274791" duration="5362000" />
+      <workItem from="1739182915860" duration="35000" />
+      <workItem from="1739194020762" duration="2069000" />
+      <workItem from="1739212665829" duration="3500000" />
+      <workItem from="1739252178347" duration="11716000" />
+      <workItem from="1739336512865" duration="4801000" />
+      <workItem from="1739445388057" duration="1145000" />
+      <workItem from="1739771253281" duration="18669000" />
+      <workItem from="1739880371904" duration="863000" />
+      <workItem from="1739902978272" duration="13027000" />
+      <workItem from="1739921448074" duration="5217000" />
+      <workItem from="1739953470589" duration="8617000" />
+      <workItem from="1739963027576" duration="1396000" />
+      <workItem from="1740027526349" duration="3745000" />
+      <workItem from="1740036405751" duration="3491000" />
+      <workItem from="1740042002317" duration="1830000" />
+      <workItem from="1740074092988" duration="13000" />
+      <workItem from="1740126062361" duration="14000" />
+      <workItem from="1740144035054" duration="74000" />
+      <workItem from="1740144610186" duration="1338000" />
+      <workItem from="1740229162493" duration="465000" />
+      <workItem from="1740305032838" duration="136000" />
+      <workItem from="1740386074468" duration="6633000" />
+      <workItem from="1740661440030" duration="107000" />
+      <workItem from="1740745853633" duration="617000" />
+      <workItem from="1740844815019" duration="1684000" />
+      <workItem from="1740988618636" duration="120000" />
+      <workItem from="1740990023774" duration="33000" />
+      <workItem from="1740990177334" duration="2712000" />
+      <workItem from="1740995424596" duration="1336000" />
+      <workItem from="1741068179088" duration="7018000" />
+      <workItem from="1741085310916" duration="3091000" />
+      <workItem from="1742900116542" duration="4211000" />
+      <workItem from="1742967768037" duration="9091000" />
+      <workItem from="1742993232552" duration="45000" />
+      <workItem from="1742993306276" duration="3519000" />
+      <workItem from="1743052219640" duration="1302000" />
+      <workItem from="1743056576318" duration="9535000" />
+      <workItem from="1743136500616" duration="3486000" />
+      <workItem from="1743150728261" duration="1343000" />
+      <workItem from="1743693542760" duration="8189000" />
+      <workItem from="1743766994581" duration="5333000" />
+      <workItem from="1743855893441" duration="2692000" />
+      <workItem from="1743875690780" duration="2564000" />
+      <workItem from="1743949083511" duration="835000" />
+      <workItem from="1743961790842" duration="605000" />
+      <workItem from="1743967284962" duration="429000" />
+      <workItem from="1744003133795" duration="10456000" />
+      <workItem from="1744026437106" duration="668000" />
+      <workItem from="1744088164189" duration="153000" />
+      <workItem from="1744088449249" duration="4920000" />
+      <workItem from="1744112205623" duration="1989000" />
+      <workItem from="1744174168966" duration="4963000" />
+      <workItem from="1744198923650" duration="4620000" />
+      <workItem from="1744264137285" duration="40000" />
+      <workItem from="1744264249826" duration="1216000" />
+      <workItem from="1744276043563" duration="5867000" />
+      <workItem from="1744547064378" duration="11474000" />
+      <workItem from="1744612914041" duration="5940000" />
+      <workItem from="1744704044650" duration="7884000" />
+      <workItem from="1745060738125" duration="607000" />
+      <workItem from="1745178890404" duration="1628000" />
+      <workItem from="1745180979187" duration="1153000" />
+      <workItem from="1745182274007" duration="8523000" />
+      <workItem from="1745232685275" duration="2692000" />
+      <workItem from="1745235613274" duration="1897000" />
+      <workItem from="1745249886963" duration="58000" />
+      <workItem from="1745267081542" duration="1303000" />
+      <workItem from="1745324413393" duration="1469000" />
+      <workItem from="1745385010011" duration="1718000" />
+      <workItem from="1745397027578" duration="8450000" />
+      <workItem from="1745469452158" duration="12642000" />
+      <workItem from="1745502525591" duration="39000" />
+      <workItem from="1745502648105" duration="428000" />
+      <workItem from="1745568303811" duration="725000" />
+      <workItem from="1746045778759" duration="2876000" />
+      <workItem from="1746277190638" duration="366000" />
+      <workItem from="1747026152245" duration="351000" />
+      <workItem from="1747026816400" duration="6779000" />
+      <workItem from="1747035419273" duration="452000" />
+      <workItem from="1747035915987" duration="33000" />
+      <workItem from="1747300227039" duration="591000" />
+      <workItem from="1747301508454" duration="2603000" />
+      <workItem from="1747307270979" duration="5738000" />
+      <workItem from="1747912805131" duration="4958000" />
+      <workItem from="1747936414086" duration="5339000" />
+      <workItem from="1747977136888" duration="13026000" />
+      <workItem from="1748000853910" duration="4615000" />
+      <workItem from="1748637613571" duration="930000" />
+      <workItem from="1748645578877" duration="579000" />
     </task>
     <servers />
   </component>

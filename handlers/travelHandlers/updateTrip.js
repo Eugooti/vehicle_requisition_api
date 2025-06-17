@@ -37,7 +37,6 @@ const updateTrip =async (req,res) => {
       return successTransaction(res,null,null,"Requisition Updated Successfully")
 
   }catch (err) {
-        console.log(err)
         await transaction.rollback()
       return handleErrors(res,err)
   }

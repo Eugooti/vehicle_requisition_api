@@ -172,7 +172,6 @@ const CreateUser = async (model, req, res) => {
             });
         }
 
-        console.log(err);
         return handleErrors(res, err);
     }
 };
