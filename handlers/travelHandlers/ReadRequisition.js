@@ -149,14 +149,14 @@ const readAllocationRequests = async (req,res) => {
       const today = new Date().toISOString().split('T')[0]; // Format: 'YYYY-MM-DD'
 
       const usersList = await usersModel.findAll()
-      const tripsList = await requisitionsModel.findAll({where:{
-              pickupDate: { [Op.lte]: today },
-              returnDate: { [Op.gte]: today },
+      const tripsList = await requisitionsModel.findAll({
+          where: {
+              pickupDate: { [Op.gte]: today }, // Only dates today or after today
               approvalStatus: "Approved",
-              // allocationMode: null,
-          }})
-
-      console.log(tripsList)
+              allocationMode: null,
+          },
+          order: [['pickupDate', 'ASC']] // Optional: sort by pickupDate ascending
+      });
 
       const departmentList = await departmentModel.findAll()
       const coTravellersList = await coTravellersModel.findAll()
@@ -226,9 +226,8 @@ const readApprovalRequests = async (req,res) => {
       const usersList = await usersModel.findAll()
       const tripsList = await requisitionsModel.findAll({
           where:{
-              pickupDate: { [Op.lte]: today },
-              returnDate: { [Op.gte]: today },
               departmentId:req.params.id,
+              pickupDate: { [Op.gte]: today }, // Only dates today or after today
               approvalStatus:'Pending',
           }})
       const coTravellersList = await coTravellersModel.findAll()

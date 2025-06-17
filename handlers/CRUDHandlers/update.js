@@ -1,4 +1,4 @@
-const { handleErrors, successTransaction, itemNotFound, getClientInfo, sanitizeEntityData} = require("../../utils/errorHandlers");
+const { handleErrors, successTransaction, itemNotFound, getClientInfo, sanitizeEntityData } = require("../../utils/errorHandlers");
 const logs = require('../../models/logs.model');
 
 const update = async (model, req, res) => {
@@ -7,8 +7,8 @@ const update = async (model, req, res) => {
     const baseLog = {
         userId: req.user?.id || null,
         loginEmail: req.user?.email || null,
-        action: `Update Vehicle`,
-        entity: 'Vehicle',
+        action: `Update ${model.name}`,
+        entity: model.name,
         entityId: id,
         ipAddress: clientInfo.ipAddress,
         metadata: {
@@ -26,40 +26,26 @@ const update = async (model, req, res) => {
     };
 
     try {
-        // 1. Get current state before update (with plain: true to get raw values)
+        // 1. Get current state before update
         const currentRecord = await model.findOne({ where: { id }, raw: true });
         if (!currentRecord) {
             await logs.create({
                 ...baseLog,
                 status: "Failed",
-                description: "Vehicle not found",
+                description: `${model.name} not found`,
                 metadata: {
                     ...baseLog.metadata,
                     error: {
                         type: "NOT_FOUND",
-                        message: "Vehicle record not found"
+                        message: `${model.name} record not found`
                     }
                 }
             });
             return itemNotFound(res);
         }
 
-        // 2. Validate and prepare update data
-        const allowedFields = ['make', 'model', 'numberPlate', 'capacity', 'availability'];
-        const updateData = {};
-
-        Object.keys(req.body).forEach(key => {
-            if (allowedFields.includes(key)) {
-                if (key === 'availability' &&
-                    !["Reserved","Available","Maintenance","In Transit"].includes(req.body[key])) {
-                    throw new Error(`Invalid availability status: ${req.body[key]}`);
-                }
-                updateData[key] = req.body[key];
-            }
-        });
-
-        // 3. Perform the update
-        const [updatedRowsCount] = await model.update(updateData, {
+        // 2. Perform the update
+        const [updatedRowsCount] = await model.update(req.body, {
             where: { id }
         });
 
@@ -67,7 +53,7 @@ const update = async (model, req, res) => {
             await logs.create({
                 ...baseLog,
                 status: "Failed",
-                description: "No vehicle records were updated",
+                description: `No ${model.name} records were updated`,
                 metadata: {
                     ...baseLog.metadata,
                     warning: "Update operation affected 0 rows"
@@ -76,21 +62,20 @@ const update = async (model, req, res) => {
             return itemNotFound(res);
         }
 
-        // 4. Get the updated record (with plain: true to get raw values)
+        // 3. Get the updated record (with plain: true to get raw values)
         const updatedRecord = await model.findOne({ where: { id }, raw: true });
         if (!updatedRecord) {
-            throw new Error("Failed to retrieve updated vehicle record");
+            throw new Error(`Failed to retrieve updated ${model.name} record`);
         }
 
-        // 5. Calculate changes between old and new states
+        // 4. Calculate changes between old and new states
         const changes = {};
         let hasChanges = false;
 
-        allowedFields.forEach(key => {
+        Object.keys(req.body).forEach(key => {
             const oldValue = currentRecord[key];
             const newValue = updatedRecord[key];
 
-            // Compare both values after converting to strings to handle different types
             if (String(oldValue) !== String(newValue)) {
                 changes[key] = {
                     from: oldValue,
@@ -100,11 +85,11 @@ const update = async (model, req, res) => {
             }
         });
 
-        // 6. Log the update
+        // 5. Log the update
         await logs.create({
             ...baseLog,
             status: "Success",
-            description: hasChanges ? "Vehicle record updated" : "Vehicle record saved with identical values",
+            description: hasChanges ? `${model.name} record updated` : `${model.name} record saved with identical values`,
             metadata: {
                 ...baseLog.metadata,
                 changes: hasChanges ? changes : null,
@@ -122,13 +107,13 @@ const update = async (model, req, res) => {
         const errorLog = {
             ...baseLog,
             status: "Failed",
-            description: "Failed to update vehicle record",
+            description: `Failed to update ${model.name} record`,
             metadata: {
                 ...baseLog.metadata,
                 error: {
                     name: err.name,
                     message: err.message,
-                    code: err.code || 'VEHICLE_UPDATE_ERROR'
+                    code: err.code || `${model.name.toUpperCase()}_UPDATE_ERROR`
                 },
                 attemptedChanges: sanitizeEntityData(req.body),
                 timestamps: {

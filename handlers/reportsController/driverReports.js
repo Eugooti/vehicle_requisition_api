@@ -185,7 +185,7 @@ const getAllDriversReports = async (req, res) => {
       approverSign: findSignature(trip.approverId, signatureList)?.signature,
       
       // Vehicle details
-      vehicle: findItem(trip.vehicleId, vehicleList)?.numberPlate,
+      vehicle: `${findItem(trip.vehicleId, vehicleList)?.make} - ${findItem(trip.vehicleId, vehicleList)?.numberPlate}`,
       
       // Allocator details
       allocator: `${findItem(trip.allocatorId, usersList)?.firstName || ''} ${findItem(trip.allocatorId, usersList)?.lastName || ''}`,
