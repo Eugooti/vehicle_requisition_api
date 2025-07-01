@@ -69,7 +69,7 @@ const trip = dbConnection.define('trip', {
         defaultValue: 'Processing'
     },
     approvalStatus:{
-        type: DataTypes.ENUM('Pending','Approved','Rejected'),
+        type: DataTypes.ENUM('Pending','Approved','Rejected',"Unapproved"),
         allowNull: false,
         defaultValue: 'Pending'
     },
@@ -102,7 +102,7 @@ const trip = dbConnection.define('trip', {
         onUpdate: 'CASCADE'  // Update trip when the associated user's id is updated
     },
     allocationMode:{
-        type: DataTypes.ENUM("Own Means","Allocated"),
+        type: DataTypes.ENUM("Own Means","Allocated","Unallocated"),
         allowNull: true,
     },
     allocatorId:{

@@ -150,13 +150,14 @@ const readAllocationRequests = async (req,res) => {
 
       const usersList = await usersModel.findAll()
       const tripsList = await requisitionsModel.findAll({where:{
-              pickupDate: { [Op.lte]: today },
-              returnDate: { [Op.gte]: today },
-              approvalStatus: "Approved",
-              // allocationMode: null,
+          [Op.and]:[
+              {allocationMode:null},
+              {pickupDate: { [Op.gte]: today }},
+              {returnDate: { [Op.gte]: today }},
+              {approvalStatus: "Approved"},
+              {allocationMode: null},
+          ]
           }})
-
-      console.log(tripsList)
 
       const departmentList = await departmentModel.findAll()
       const coTravellersList = await coTravellersModel.findAll()
@@ -226,7 +227,7 @@ const readApprovalRequests = async (req,res) => {
       const usersList = await usersModel.findAll()
       const tripsList = await requisitionsModel.findAll({
           where:{
-              pickupDate: { [Op.lte]: today },
+              pickupDate: { [Op.gte]: today },
               returnDate: { [Op.gte]: today },
               departmentId:req.params.id,
               approvalStatus:'Pending',

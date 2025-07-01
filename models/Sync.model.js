@@ -1,6 +1,6 @@
 const departments = require("./departments.model");
-const users = require("./user.model");
 const vehicle = require("./vehicle.model");
+const users = require("./user.model");
 const roles = require('./roles.model');
 const trips = require("./Trip.model");
 const schedule = require('./schedule.model');
@@ -13,12 +13,12 @@ const logs = require("./logs.model");
 const syncModel = async () => {
   try {
       await departments.sync();
-      await roles.sync();
-      await users.sync();
       await vehicle.sync();
+      await users.sync();
+      await roles.sync();
       await trips.sync();
-      await schedule.sync();
       await signature.sync();
+      await schedule.sync();
       await feedback.sync();
       await coTravellers.sync()
       await logs.sync();
