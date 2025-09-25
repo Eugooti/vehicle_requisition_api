@@ -25,6 +25,7 @@ const updateUnapprovedTrips = async () => {
             }
         );
 
+        console.log(`Successfully updated ${updateCount[0]} unapproved trip records`);
         return { success: true, count: updateCount[0] };
 
     } catch (err) {
@@ -54,6 +55,9 @@ const updateUnallocatedTrips = async () => {
                 }
             }
         );
+
+        console.log(`Successfully updated ${updateCount[0]} unallocated trip records`);
+
 
         return { success: true, count: updateCount[0] };
 
@@ -87,6 +91,8 @@ const updateCompletedTrips = async () => {
                 }
             }
         );
+
+        console.log(`Successfully updated ${updateCount[0]} completed trip records`);
 
         return { success: true, count: updateCount[0] };
 

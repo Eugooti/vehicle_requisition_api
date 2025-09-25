@@ -21,7 +21,8 @@ const notifications = require('./handlers/automatedTasks/notifications')
 
 const port = process.env.PORT || 4500;
 const host='192.168.1.82'
-const scheduleTime = '56 14'
+const reminderTime = '0 13'
+const updateTime = '1 0'
 
 const generateSecretKey = () => {
     return crypto.randomBytes(32).toString('hex');
@@ -33,36 +34,19 @@ const app = express()
 modelSync().then(connection => {
     if (connection) {
 
-        cron.schedule(`${scheduleTime} * * *`, async () => {
-            console.log(`Running the scheduled task at ${scheduleTime} HRS`);
-
+        //reminders
+        cron.schedule(`${process.env.REMINDERTIME} * * *`, async () => {
             await notifications.notifyRequisitions()
             await notifications.notifyManagers()
             await notifications.notifyAdmins()
+        })
 
-            await routineUpdates.updateUnapprovedTrips().then(state=>{
-                if(state.success){
-                    console.log(`Successfully updated ${state.count} unapproved trip records`);
-                }else{
-                    console.error("Failed to update unapproved trips:", state.error);
-                }
-            })
-
-                await routineUpdates.updateUnallocatedTrips().then(state2=>{
-                if(state2.success){
-                    console.log(`Successfully updated ${state2.count} unallocated trip records`);
-                }else{
-                    console.error("Failed to update unallocated trips:", state2.error);
-                }
-            })
-
-            await routineUpdates.updateCompletedTrips().then(state3=>{
-                if(state3.success){
-                    console.log(`Successfully updated ${state3.count} completed trip records`);
-                }else{
-                    console.error("Failed to update completed trips:", state3.error);
-                }
-            })
+        //update records
+        cron.schedule(`${process.env.UPDATETIME} * * *`, async () => {
+            console.log(`Running the scheduled task at ${scheduleTime} HRS`);
+            await routineUpdates.updateUnapprovedTrips()
+            await routineUpdates.updateUnallocatedTrips()
+            await routineUpdates.updateCompletedTrips()
         });
 
         app.use(cors({

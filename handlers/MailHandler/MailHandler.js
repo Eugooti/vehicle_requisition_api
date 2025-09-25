@@ -61,6 +61,7 @@ const MailHandler = async (to, subject, body) => {
         await transporter.sendMail(mailOptions);
         return { success: true };
     } catch (err) {
+        console.log(err)
         return { success: false, error: err.message };
     }
 };
