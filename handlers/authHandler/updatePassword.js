@@ -13,7 +13,7 @@ const updatePassword = async (model,req,res) => {
       const hashedPassword = crypto.createHash('sha256').update(password+user.salt).digest('hex');
 
       if (hashedPassword !== user.password) {
-          return res.status(401).json({
+          return res.status(404).json({
               success: false,
               message:"Passwords do not match."
           });
