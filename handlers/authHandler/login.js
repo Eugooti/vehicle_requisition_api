@@ -11,7 +11,7 @@ const Login = async (req, res, next) => {
             }
 
             if (!user) {
-                return res.status(401).json({
+                return res.status(404).json({
                     success: false,
                     message: info.message
                 });
@@ -32,7 +32,11 @@ const Login = async (req, res, next) => {
                     userId: user.id,
                     email: user.email,
                     roles: formattedUserRoles,
-                    departmentId: user.departmentId
+                    departmentId: user.departmentId,
+                    designation: user.designation,
+                    phone: user.phone,
+                    firstName: user.firstName,
+                    lastName: user.lastName,
                 };
 
 
@@ -70,10 +74,7 @@ const Login = async (req, res, next) => {
                 return res.status(200).json({
                     success: true,
                     message: 'Login successful',
-                    authToken,
                     user: userResponse,
-                    refreshToken,
-                    roles: formattedUserRoles,
                 });
             });
         })(req, res, next);

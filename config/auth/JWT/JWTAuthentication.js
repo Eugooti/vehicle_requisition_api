@@ -2,7 +2,7 @@ const jwt = require('jsonwebtoken');
 require('dotenv').config();
 
 const authenticateToken = (req, res, next) => {
-    const token = req.cookies.authToken;  // Assuming the token is stored in cookies
+    const token = req.cookies.authToken;
 
     if (!token) return res.status(403).json({ message: "No token provided" });
 
@@ -15,8 +15,6 @@ const authenticateToken = (req, res, next) => {
 
             return res.status(403).json({ message: 'Invalid token' });
         }
-
-        console.log(user)
 
         req.user = user;
         next();

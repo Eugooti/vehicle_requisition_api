@@ -8,7 +8,7 @@ const trip = dbConnection.define('trip', {
         autoIncrement: true,
         unique: true
     },
-    UserId:{
+    userId:{
         type: DataTypes.INTEGER,
         allowNull: false,
         references: {
@@ -43,13 +43,30 @@ const trip = dbConnection.define('trip', {
         type: DataTypes.INTEGER,
         allowNull: false,
     },
-    scheduleDate:{
-      type: DataTypes.DATE,
+    pickupDate:{
+      type: DataTypes.DATEONLY,
       allowNull: false,
     },
-    scheduleTime:{
+    pickupTime:{
         type: DataTypes.TIME,
         allowNull: false,
+    },
+    returnDate:{
+      type: DataTypes.DATEONLY,
+      allowNull: false,
+    },
+    returnTime:{
+        type: DataTypes.TIME,
+        allowNull: false,
+    },
+    numberOfDays:{
+        type: DataTypes.INTEGER,
+        allowNull: false,
+    },
+    travelStatus:{
+        type: DataTypes.ENUM('Complete','Canceled','Travelling','Processing'),
+        allowNull: false,
+        defaultValue: 'Processing'
     },
     approvalStatus:{
         type: DataTypes.ENUM('Pending','Approved','Rejected'),
@@ -67,6 +84,7 @@ const trip = dbConnection.define('trip', {
     },
     vehicleId:{
         type: DataTypes.INTEGER,
+        allowNull: true,
         references: {
             model: 'vehicles',
             key: 'id'
@@ -76,21 +94,33 @@ const trip = dbConnection.define('trip', {
     },
     driverId:{
         type: DataTypes.INTEGER,
+        allowNull: true,
         references: {
             model: 'users',
             key: 'id'
         },
         onUpdate: 'CASCADE'  // Update trip when the associated user's id is updated
     },
+    allocatorId:{
+        type: DataTypes.INTEGER,
+        allowNull: true,
+        references: {
+            model: 'users',
+            key: 'id'
+        },
+        onUpdate: 'CASCADE'
+    },
+    allocatorNote:{
+        type: DataTypes.STRING,
+        allowNull: true,
+    },
     startTime:{
         type: DataTypes.DATE,
         allowNull: true,
-        defaultValue: new Date()
     },
     endTime:{
         type: DataTypes.DATE,
         allowNull: true,
-        defaultValue: new Date()
     }
 
 })
