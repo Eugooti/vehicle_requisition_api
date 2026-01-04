@@ -13,8 +13,8 @@ const logs = require("./logs.model");
 const syncModel = async () => {
   try {
       await departments.sync();
-      await vehicle.sync();
       await users.sync();
+      await vehicle.sync();
       await roles.sync();
       await trips.sync();
       await signature.sync();

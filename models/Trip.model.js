@@ -133,6 +133,6 @@ const trip = dbConnection.define('trip', {
 
 })
 
-trip.sync()
+// trip.sync()
 
 module.exports = trip

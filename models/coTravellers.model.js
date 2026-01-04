@@ -28,6 +28,6 @@ const coTravellers = dbConnection.define('cotravellers',{
     }
 })
 
-coTravellers.sync()
+// coTravellers.sync()
 
 module.exports = coTravellers

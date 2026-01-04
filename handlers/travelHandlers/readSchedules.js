@@ -10,7 +10,7 @@ const readSchedules = async (req, res) => {
 
         const trips = await tripsModel.findAll({
             where: {
-                pickupDate: { [Op.lte]: today },
+                pickupDate: { [Op.gte]: today },
                 returnDate: { [Op.gte]: today }
             },
             raw: true

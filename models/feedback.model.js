@@ -52,6 +52,6 @@ const feedback = sequelize.define('feedback', {
     }
 });
 
-feedback.sync()
+// feedback.sync()
 
 module.exports = feedback

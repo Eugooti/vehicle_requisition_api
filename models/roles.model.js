@@ -32,6 +32,6 @@ const rolesModel = dbConnection.define('roles', {
     }
 })
 
-rolesModel.sync()
+// rolesModel.sync()
 
 module.exports = rolesModel;

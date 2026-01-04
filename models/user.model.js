@@ -59,6 +59,6 @@ const users = dbConnection.define('users', {
     }
 })
 
-users.sync()
+// users.sync()
 
 module.exports = users;

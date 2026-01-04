@@ -23,6 +23,6 @@ const signatures = sequelize.define('signatures', {
     }
 })
 
-signatures.sync()
+// signatures.sync()
 
 module.exports = signatures

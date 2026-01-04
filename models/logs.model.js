@@ -74,7 +74,8 @@ const logs = sequelize.define('logs',{
             fields: ['entityId'] // Index for faster filtering by entityId
         },
         {
-            fields: ['userId'] // Index for faster user-based queries
+            fields: ['userId'],
+            name: 'audit_logs_user_id_manual' // Give it a unique name to avoid conflict with auto-generated FK index
         },
         {
             fields: ['status'] // Index for status filtering
@@ -101,6 +102,6 @@ const logs = sequelize.define('logs',{
 //     }
 // }
 
-logs.sync();
+// logs.sync();
 
 module.exports = logs;

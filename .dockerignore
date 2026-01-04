@@ -1,0 +1,22 @@
+# node_modules
+node_modules
+npm-debug.log
+
+# Docker files
+Dockerfile
+docker-compose.yml
+.dockerignore
+
+# Git
+.git
+.gitignore
+
+# Env and IDE
+.env
+.idea
+.vscode
+
+# Tests and documentation
+*.md
+__test__
+jest.config.js

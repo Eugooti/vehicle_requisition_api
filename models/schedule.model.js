@@ -46,5 +46,5 @@ const reservations = dbConnection.define('schedule', {
     }
 })
 
-reservations.sync()
+// reservations.sync()
 module.exports = reservations;

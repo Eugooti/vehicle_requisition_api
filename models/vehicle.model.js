@@ -44,6 +44,6 @@ const vehicle = dbConnection.define('vehicle', {
 
 })
 
-vehicle.sync()
+// vehicle.sync()
 
 module.exports = vehicle

@@ -23,6 +23,6 @@ const departmentModel = dbConnection.define('departments',{
     }
 })
 
-departmentModel.sync()
+// departmentModel.sync()
 
 module.exports = departmentModel;
