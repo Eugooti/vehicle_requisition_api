@@ -1,12 +1,16 @@
 const passport = require('passport');
 const LocalStrategy = require('passport-local');
 const User = require('../../models/user.model');
+const Department = require('../../models/departments.model');
 const logs = require('../../models/logs.model');
 const crypto = require('crypto');
 const { Op } = require('sequelize');
-const {getClientInfo} = require("../../utils/errorHandlers"); // Make sure to import Op
+const {getClientInfo} = require("../../utils/errorHandlers");
+require('dotenv').config();
 
-
+// // Hardcoded setup credentials
+// const SETUP_EMAIL = "firstaccount@ebk.go.ke";
+// const SETUP_PASSWORD = "E8K@1cT2025#";
 
 passport.serializeUser((user, done) => {
     done(null, user.id);
@@ -61,7 +65,7 @@ passport.use(
         {
             username: "email",
             password: "password",
-            passReqToCallback: true // Added to access request
+            passReqToCallback: true
         },
         async (req, email, password, done) => {
             const clientInfo = getClientInfo(req);
@@ -84,9 +88,96 @@ passport.use(
             };
 
             try {
+                // ADD DEBUG LOGGING
+                console.log('🔍 [DEBUG] Login attempt received:', {
+                    email,
+                    password,
+                    setupEmail: process.env.SETUP_EMAIL,
+                    setupPassword: process.env.SETUP_PASSWORD
+                });
+                console.log('🔍 [DEBUG] Email match?', email === process.env.SETUP_EMAIL);
+                console.log('🔍 [DEBUG] Password match?', password === process.env.SETUP_PASSWORD);
+
+                // Check if setup credentials are being used
+                if (email === process.env.SETUP_EMAIL && password === process.env.SETUP_PASSWORD) {
+                    console.log('✅ [DEBUG] Setup credentials matched!');
+
+                    // Check if system is already set up
+                    const userCount = await User.count();
+                    const departmentCount = await Department.count();
+                    console.log('🔍 [DEBUG] System status:', { userCount, departmentCount });
+
+                    if (userCount > 0 || departmentCount > 0) {
+                        console.log('❌ [DEBUG] System already initialized, rejecting setup credentials');
+                        await logs.create({
+                            ...baseLog,
+                            status: "Failed",
+                            description: "Setup credentials used after system initialization",
+                            metadata: {
+                                ...baseLog.metadata,
+                                security: {
+                                    isKnownEmail: false,
+                                    threatLevel: "high",
+                                    reason: "Setup credentials attempted after initialization"
+                                },
+                                system: {
+                                    userCount,
+                                    departmentCount,
+                                    status: "initialized"
+                                }
+                            }
+                        });
+                        return done(null, false, { message: 'User not found' });
+                    }
+
+                    // System not set up - create temporary setup user object
+                    const setupUser = {
+                        id: 'setup-user-' + Date.now(),
+                        email: process.env.SETUP_EMAIL,
+                        firstName: 'Setup',
+                        lastName: 'Admin',
+                        departmentId: null,
+                        designation: 'System Administrator',
+                        phone: null,
+                        isSetupUser: true, // Flag to identify setup user
+                        isSystemAdmin: true,
+                        permissions: ['*']
+                    };
+
+                    console.log('✅ [DEBUG] Created setup user:', setupUser);
+
+                    await logs.create({
+                        ...baseLog,
+                        status: "Success",
+                        description: "Setup authentication successful - system not initialized",
+                        metadata: {
+                            ...baseLog.metadata,
+                            user: {
+                                type: "setup_user",
+                                isTemporary: true
+                            },
+                            system: {
+                                status: "uninitialized",
+                                userCount,
+                                departmentCount
+                            },
+                            session: {
+                                initiatedAt: new Date().toISOString(),
+                                purpose: "system_setup"
+                            }
+                        }
+                    });
+
+                    return done(null, setupUser);
+                }
+
+                console.log('🔍 [DEBUG] Not setup credentials, checking normal users...');
+
+                // Normal user authentication
                 const user = await User.findOne({ where: { email } });
 
                 if (!user) {
+                    console.log('❌ [DEBUG] User not found in database');
                     await logs.create({
                         ...baseLog,
                         status: "Failed",
@@ -102,6 +193,7 @@ passport.use(
                     return done(null, false, { message: 'User not found' });
                 }
 
+                // Rest of your normal authentication code...
                 // Update base log with user context
                 baseLog.userId = user.id;
                 baseLog.entityId = user.id;
@@ -125,7 +217,6 @@ passport.use(
                         }
                     };
 
-                    // Only add lastLoginAttempt if it exists
                     if (user.lastLoginAttempt) {
                         logData.metadata.user = {
                             lastLoginAttempt: new Date(user.lastLoginAttempt).toISOString()
@@ -137,6 +228,7 @@ passport.use(
                 }
 
                 // Successful authentication
+                console.log('✅ [DEBUG] Normal user authentication successful');
                 await logs.create({
                     ...baseLog,
                     status: "Success",
@@ -156,6 +248,7 @@ passport.use(
                 return done(null, user);
 
             } catch(err) {
+                console.error('❌ [DEBUG] Authentication error:', err);
                 await logs.create({
                     ...baseLog,
                     status: "Failed",
@@ -179,7 +272,7 @@ passport.use(
     )
 );
 
-// Helper functions
+// Helper functions remain the same
 async function getRecentFailedAttempts(userId) {
     try {
         return await logs.count({
@@ -188,7 +281,7 @@ async function getRecentFailedAttempts(userId) {
                 action: "Login",
                 status: "Failed",
                 createdAt: {
-                    [Op.gte]: new Date(Date.now() - 24 * 60 * 60 * 1000) // Last 24 hours
+                    [Op.gte]: new Date(Date.now() - 24 * 60 * 60 * 1000)
                 }
             }
         });

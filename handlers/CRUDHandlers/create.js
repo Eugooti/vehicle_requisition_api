@@ -183,39 +183,39 @@ const createMany = async (model, req, res) => {
 
     } catch (err) {
         // Prepare detailed error log
-        const errorLog = {
-            ...baseLog,
-            action: `Bulk Create ${model.modelName || model.name}`,
-            status: "Failed",
-            description: `Failed to create ${req.body.length} records`,
-            metadata: {
-                ...baseLog.metadata,
-                error: {
-                    name: err.name,
-                    message: err.message,
-                    code: err.code || 'BULK_CREATE_ERROR',
-                    stack: process.env.NODE_ENV === 'development' ? err.stack : undefined
-                },
-                operation: {
-                    attemptedCount: req.body.length,
-                    batchSize: req.body.length,
-                    sampleData: sanitizeEntityData(req.body.slice(0, 3)) // First 3 sanitized items
-                }
-            }
-        };
-
-        try {
-            await logs.create(errorLog);
-        } catch (logErr) {
-            console.error('Failed to write error log:', logErr);
-            // Fallback logging
-            console.error('Original bulk create error:', {
-                error: err.message,
-                route: req.originalUrl,
-                attemptedCount: req.body.length,
-                userId: req.user?.id
-            });
-        }
+        // const errorLog = {
+        //     ...baseLog,
+        //     action: `Bulk Create ${model.modelName || model.name}`,
+        //     status: "Failed",
+        //     description: `Failed to create ${req.body.length} records`,
+        //     metadata: {
+        //         ...baseLog.metadata,
+        //         error: {
+        //             name: err.name,
+        //             message: err.message,
+        //             code: err.code || 'BULK_CREATE_ERROR',
+        //             stack: process.env.NODE_ENV === 'development' ? err.stack : undefined
+        //         },
+        //         operation: {
+        //             attemptedCount: req.body.length,
+        //             batchSize: req.body.length,
+        //             sampleData: sanitizeEntityData(req.body.slice(0, 3)) // First 3 sanitized items
+        //         }
+        //     }
+        // };
+        //
+        // try {
+        //     await logs.create(errorLog);
+        // } catch (logErr) {
+        //     console.error('Failed to write error log:', logErr);
+        //     // Fallback logging
+        //     console.error('Original bulk create error:', {
+        //         error: err.message,
+        //         route: req.originalUrl,
+        //         attemptedCount: req.body.length,
+        //         userId: req.user?.id
+        //     });
+        // }
 
         return handleErrors(res, err);
     }

@@ -10,7 +10,7 @@ services:
     networks:
       - vehicle_net
     healthcheck:
-      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      test: [ "CMD-SHELL", "mysqladmin ping -h localhost -p$DBPASSWORD || exit 1" ]
       interval: 10s
       timeout: 5s
       retries: 5
