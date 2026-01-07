@@ -2,6 +2,7 @@ services:
   db:
     image: mysql:8.0
     restart: always
+    command: --default-authentication-plugin=mysql_native_password
     environment:
       MYSQL_DATABASE: ${DBNAME}
       MYSQL_ROOT_PASSWORD: ${DBPASSWORD}
@@ -10,7 +11,7 @@ services:
     networks:
       - vehicle_net
     healthcheck:
-      test: ["CMD-SHELL", "mysqladmin ping -h localhost -u root -p$${MYSQL_ROOT_PASSWORD}"]
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-p${DBPASSWORD}"]
       interval: 10s
       timeout: 5s
       retries: 5
