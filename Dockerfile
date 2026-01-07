@@ -19,9 +19,5 @@ USER node
 # Expose the application port
 EXPOSE 8080
 
-# Health check to ensure the service is running
-HEALTHCHECK --interval=30s --timeout=5s --start-period=15s --retries=3 \
-  CMD wget --no-verbose --tries=1 --spider http://localhost:8080/ebk || exit 1
-
 # Start the application
 CMD ["node", "server.js"]
