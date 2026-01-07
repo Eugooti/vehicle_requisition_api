@@ -20,7 +20,6 @@ const notifications = require('./handlers/automatedTasks/notifications')
 
 
 const port = process.env.PORT || 4500;
-const host='192.168.1.82'
 const reminderTime = '0 13'
 const updateTime = '1 0'
 
@@ -43,14 +42,14 @@ modelSync().then(connection => {
 
         //update records
         cron.schedule(`${process.env.UPDATETIME} * * *`, async () => {
-            console.log(`Running the scheduled task at ${scheduleTime} HRS`);
+            console.log(`Running the scheduled task at ${process.env.UPDATETIME} HRS`);
             await routineUpdates.updateUnapprovedTrips()
             await routineUpdates.updateUnallocatedTrips()
             await routineUpdates.updateCompletedTrips()
         });
 
         app.use(cors({
-            origin: ['http://localhost:5174','http://localhost:5173',`http://${host}:5173`], // Frontend URL
+            origin: ['http://localhost:5174','http://localhost:5173'], // Frontend URL
             methods: ['GET', 'POST', 'DELETE', 'PUT'],
             credentials: true
         }));
@@ -65,6 +64,9 @@ modelSync().then(connection => {
         }));
 
         app.use('/ebk',authRoutes);
+        app.get('/ebk', (req, res) => {
+            res.status(200).json({ status: 'OK', message: 'API is running' });
+        });
         app.use('/ebk',authenticateToken,tripsRoutes)
         app.use('/ebk',authenticateToken,adminRoutes)
         app.use('/ebk',authenticateToken,reportRoutes)
@@ -79,7 +81,6 @@ modelSync().then(connection => {
 
         app.listen(port,() => {
             console.log(`Server running on http://localhost:${port}/ebk`);
-            console.log(`Server running on http://${host}:${port}/ebk`);
         })
     }
     else console.log(`Unable to connect to the database.`);
