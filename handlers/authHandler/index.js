@@ -2,6 +2,7 @@ const { Login } = require("./login");
 const { logout } = require("./LogOut");
 const { updatePassword } = require("./updatePassword");
 const {refreshAccessToken} = require("../../config/auth/JWT/refreshTokens");
+const {getCode, verifyResetCode, changePassword} = require("./PasswordReset");
 
 const authHandlers = (model) => {
     const methods = {};
@@ -20,6 +21,22 @@ const authHandlers = (model) => {
 
     methods.refreshToken = async (req, res) => {
         await refreshAccessToken(req, res);
+    }
+
+    methods.getCode = async (req,res) => {
+        await getCode(req, res);
+    }
+
+    methods.verifyResetCode = async (req, res) => {
+        await verifyResetCode(req, res);
+    }
+
+    methods.changePassword = async (req, res) => {
+        await changePassword(req, res);
+    }
+
+    methods.healthCheck = async (req, res) => {
+        res.status(200).json({ status: 'OK', message: 'API is running' });
     }
 
     return methods;

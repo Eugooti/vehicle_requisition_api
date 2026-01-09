@@ -1,22 +1,11 @@
 const roles = {
     admin:['all'],
-    manager:['apply','approve','dpt_report'],
-    assistant_Manager:['apply','approve','dpt_report'],
+    manager:['apply','approve'],
+    hrm:['create-user','apply','approve','dpt_report','create-vehicle','read-users','assign-roles','remove-role','add-Vehicle','read-vehicles','update-vehicle','assign'],
     driver:['start','end'],
-    applicant:['apply','user_report']
+    applicant:['apply']
 }
 
-
-const user1 = {
-    name:"admin",
-    email:"admin@gmail.com",
-}
-
-const user2 = user1
-
-user2.phone = "071232232"
-
-console.log(user2['name'])
 
 
 module.exports = {roles}

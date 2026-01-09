@@ -13,12 +13,16 @@ const departmentModel = dbConnection.define('departments',{
         allowNull: false,
         unique: true,
     },
+    type:{
+        type: DataTypes.ENUM("Department","Directorate"),
+        allowNull: false,
+    },
     responsibility:{
         type: DataTypes.STRING,
         allowNull: false,
     }
 })
 
-departmentModel.sync()
+// departmentModel.sync()
 
 module.exports = departmentModel;

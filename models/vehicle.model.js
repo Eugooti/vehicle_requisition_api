@@ -35,10 +35,15 @@ const vehicle = dbConnection.define('vehicle', {
             key: 'id'
         },
         onUpdate: 'CASCADE'  // Update department when the associated user's id is updated
+    },
+    availability:{
+        type: DataTypes.ENUM("Reserved","Available","Maintenance","In Transit"),
+        allowNull: false,
+        defaultValue: "Available"
     }
 
 })
 
-vehicle.sync()
+// vehicle.sync()
 
 module.exports = vehicle
