@@ -35,6 +35,10 @@ const authHandlers = (model) => {
         await changePassword(req, res);
     }
 
+    methods.healthCheck = async (req, res) => {
+        res.status(200).json({ status: 'OK', message: 'API is running' });
+    }
+
     return methods;
 };
 

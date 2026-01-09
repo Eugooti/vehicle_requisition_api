@@ -1,22 +1,26 @@
-# node_modules
 node_modules
 npm-debug.log
-
-# Docker files
-Dockerfile
-docker-compose.yml
-.dockerignore
-
-# Git
+yarn-error.log
+.env.local
+.env.*.local
 .git
 .gitignore
-
-# Env and IDE
-.env
-.idea
+Dockerfile
+docker-compose.yml
+docker-compose.*.yml
+README.md
+logs
+*.log
+coverage
+.nyc_output
 .vscode
-
-# Tests and documentation
-*.md
-__test__
-jest.config.js
+.idea
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+test
+tests
+__tests__
+*.test.js
+*.spec.js

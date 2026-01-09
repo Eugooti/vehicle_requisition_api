@@ -1,33 +1,104 @@
+version: '3.8'
+
 services:
   db:
-    image: mariadb:10.6
+    image: mysql:8.0
     restart: always
     environment:
-      MARIADB_DATABASE: ${DBNAME}
-      MARIADB_ROOT_PASSWORD: ${DBPASSWORD}
+      MYSQL_DATABASE: ${DB_NAME}
+      MYSQL_USER: ${DB_USER}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+      TZ: ${TZ:-UTC}  # ← Timezone for MySQL
     volumes:
       - mysql_data:/var/lib/mysql
+      - ./mysql/conf.d:/etc/mysql/conf.d:ro
     networks:
-      - vehicle_net
+      - app_network
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u${DB_USER}", "-p${DB_PASSWORD}"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    command:
+      - --default-authentication-plugin=mysql_native_password
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+      - --max_connections=1000
+    deploy:
+      resources:
+        limits:
+          memory: 1G
 
   api:
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - TZ=${TZ:-UTC}  # ← Pass timezone as build arg
+    image: ${DOCKER_USERNAME}/vehicle-api:${API_VERSION:-latest}
     restart: always
     depends_on:
-      - db
-    env_file:
-      - .env
+      db:
+        condition: service_healthy
     environment:
-      - DB_HOST=db
+      # Application settings
       - NODE_ENV=production
+      - PORT=8080
+
+      # Database settings
+      - DB_HOST=db
+      - DB_USER=${DB_USER}
+      - DB_PASSWORD=${DB_PASSWORD}
+      - DB_NAME=${DB_NAME}
+      - DB_PORT=3306
+
+      # Security settings
+      - SESSION_SECRET=${SESSION_SECRET}
+      - ALLOWED_ORIGINS=${ALLOWED_ORIGINS}
+
+      # Timezone settings - FIX FOR NODE-CRON
+      - TZ=${TZ:-UTC}  # ← CRITICAL: Set timezone for Node.js
+
+      # Cron settings (use full cron syntax)
+      - REMINDER_CRON=${REMINDER_CRON:-0 13 * * *}
+      - UPDATE_CRON=${UPDATE_CRON:-1 0 * * *}
+
+      # Optional: For debugging
+      - NODE_TZ_REJECT_INVALID=${NODE_TZ_REJECT_INVALID:-0}
+
     ports:
-      - "8080:8080"
+      - "${API_PORT:-8080}:8080"
     networks:
-      - vehicle_net
+      - app_network
+    volumes:
+      - ./logs:/app/logs
+      - /etc/timezone:/etc/timezone:ro  # ← Share host timezone
+      - /etc/localtime:/etc/localtime:ro  # ← Share localtime
+    healthcheck:
+      test: ["CMD", "node", "healthcheck.js"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 512M
+        reservations:
+          cpus: '0.5'
+          memory: 256M
 
 networks:
-  vehicle_net:
+  app_network:
     driver: bridge
 
 volumes:
   mysql_data:
+    driver: local

@@ -9,6 +9,7 @@ const {authenticateToken} = require("../config/auth/JWT/JWTAuthentication");
 const router = express.Router();
 
 router.route('/auth/login').post(catchErrors(authController.login))
+router.route('/').get(catchErrors(authController.healthCheck))
 router.route('/auth/logout').get(authenticateToken,catchErrors(authController.logout));
 router.route('/auth/updatePassword/:id').put(catchErrors(authController.updatePassword))
 router.route('/auth/refreshToken').post(catchErrors(authController.refreshToken));
