@@ -1,4 +1,4 @@
-const {successTransaction, handleErrors, itemNotFound} = require("../../../utils/errorHandlers");
+const {successTransaction, handleErrors, itemNotFound} = require("../../utils/errorHandlers");
 const read = async (model,req,res) => {
     try {
         const result = await model.findAll()
@@ -32,10 +32,6 @@ const readByUserId = async (model,req,res)=>{
 
         const result = await model.findAll({where:{userId:req.params.id}});
 
-        if (result.length===0){
-            return itemNotFound(res)
-        }
-
         return successTransaction(res,'read',result)
 
 
@@ -48,10 +44,6 @@ const readByUserId = async (model,req,res)=>{
 const readByDpt = async (model,req,res)=>{
     try {
         const result = await model.findAll({where:{departmentId:req.params.id}})
-
-        if (result.length===0){
-            return itemNotFound(res)
-        }
 
         return successTransaction(res,'read',result)
 

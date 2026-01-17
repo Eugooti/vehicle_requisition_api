@@ -26,11 +26,12 @@ const rolesModel = dbConnection.define('roles', {
         allowNull: false,
         references: {
             model: 'departments',
-            key: 'id',
-        }
+            key: 'id'
+        },
+        onUpdate: 'CASCADE'
     }
 })
 
-rolesModel.sync()
+// rolesModel.sync()
 
 module.exports = rolesModel;

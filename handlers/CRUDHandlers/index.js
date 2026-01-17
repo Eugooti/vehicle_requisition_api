@@ -38,6 +38,8 @@ const CRUDMethods = (model) => {
         await remove(model,req,res)
     }
 
+
+
     return methods;
 
 }
